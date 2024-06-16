@@ -11,6 +11,7 @@ module.exports = {
   devServer: {
     port: 4200,
     historyApiFallback: true,
+    allowedHosts: "all"
   },
   plugins: [
     new NxAppWebpackPlugin({

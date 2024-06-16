@@ -1,3 +1,5 @@
+
+
 const theme = {
     light: {
         main_colours:
@@ -40,7 +42,7 @@ const theme = {
         font_logo: '"Allerta Stencil", sans-serif',
         pc:{
             logo: {
-                weight: "regular",
+                weight: "normal",
                 size: "35px",
             },
             heading: {
@@ -51,13 +53,13 @@ const theme = {
                     paragraph_spacing: "0px",
                 },
                 2: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "26px",
                     line_height: "35px",
                     paragraph_spacing: "0px",
                 },
                 3: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "20px",
                     line_height: "26px",
                     paragraph_spacing: "0px",
@@ -69,7 +71,7 @@ const theme = {
                     paragraph_spacing: "0px",
                 },
                 5: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "16px",
                     line_height: "27px",
                     paragraph_spacing: "10px",
@@ -83,13 +85,13 @@ const theme = {
                     paragraph_spacing: "0px",
                 },
                 medium: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "14px",
                     line_height: "0px",
                     paragraph_spacing: "0px",
                 },
                 small: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "12px",
                     line_height: "20px",
                     paragraph_spacing: "10px",
@@ -98,24 +100,24 @@ const theme = {
         },
         mobile:{
             logo: {
-                weight: "regular",
+                weight: "normal",
                 size: "25px",
             },
             heading: {
                 1: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "20px",
                     line_height: "26px",
                     paragraph_spacing: "0px",
                 },
                 2: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "16px",
                     line_height: "27px",
                     paragraph_spacing: "10px",
                 },
                 3: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "14px",
                     line_height: "0px",
                     paragraph_spacing: "0px",
@@ -123,7 +125,7 @@ const theme = {
             },
             body: {
                 small: {
-                    weight: "regular",
+                    weight: "normal",
                     size: "12px",
                     line_height: "20px",
                     paragraph_spacing: "10px",
