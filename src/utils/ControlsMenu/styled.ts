@@ -65,6 +65,7 @@ export const Rect = styled.rect`
 `;
 
 export const Svg = styled.svg`
+  cursor: pointer;
   display: grid;
   align-items: center;
 `;
@@ -75,4 +76,3 @@ export const SideMenuButton = styled.button`
   display: grid;
   place-items: center;
 `;
-

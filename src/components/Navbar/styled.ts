@@ -31,7 +31,7 @@ export const LogoHeaderAccent = styled.span`
 `;
 
 export const NavElementsContainer = styled.div`
-  width: 85%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +56,6 @@ export const NavbarContainer = styled.div`
   left: 0;
   top: 0;
   height: 100%;
-  position: absolute;
   background-color: ${(props) => props.theme.main_colours.white};
   transition: 0.2s ease-in-out;
 `;

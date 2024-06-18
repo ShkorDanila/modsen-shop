@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import theme from '../static_theme';
 
-interface SideMenuStyled {
+interface ISideMenuStyled {
   isOpened: boolean;
 }
 
@@ -25,10 +25,10 @@ const animationIn = css`
 
 const animationOut = css`
   width: 0%;
-  display:none;
+  display: none;
 `;
 
-export const SideMenuStyled = styled.div<SideMenuStyled>`
+export const SideMenuStyled = styled.div<ISideMenuStyled>`
   @media (width > ${theme.device_sizing.size.tablet}) {
     display: none;
   }
@@ -44,14 +44,14 @@ export const SideMenuStyled = styled.div<SideMenuStyled>`
 `;
 
 export const Ul = styled.ul`
-    list-style-type:  none;
-    padding: 0px;
-`
+  list-style-type: none;
+  padding: 0px;
+`;
 
 export const StyledMenuOption = styled.h1`
   font-size: ${theme.typefaces.mobile.heading[1].size};
   font-weight: ${theme.typefaces.mobile.heading[1].weight};
   line-height: ${theme.typefaces.mobile.heading[1].line_height};
   font-family: ${theme.typefaces.font_primary};
-  color: ${props => props.theme.main_colours.black}
-`
+  color: ${(props) => props.theme.main_colours.black};
+`;
