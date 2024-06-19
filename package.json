@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@netlify/functions": "^2.7.0",
     "@reduxjs/toolkit": "^2.2.5",
     "@types/react-router-dom": "^5.3.3",
     "dotenv": "^16.4.5",
