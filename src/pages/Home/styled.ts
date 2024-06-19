@@ -5,5 +5,7 @@ export const HomePageWrapper = styled.div`
   height: 100%;
   background-color: transparent;
   display: grid;
+  gap: 20px;
   grid-auto-flow: row;
 `;
+

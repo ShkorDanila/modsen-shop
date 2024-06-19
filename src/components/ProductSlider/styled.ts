@@ -136,9 +136,7 @@ export const InfoSection = styled.section`
   bottom: 0;
   z-index: 10;
   display: none;
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    ${SliderImage}:hover && {
-      display: block;
-    }
+  ${SliderImage}:hover && {
+    display: block;
   }
 `;

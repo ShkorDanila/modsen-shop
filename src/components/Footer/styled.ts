@@ -90,7 +90,6 @@ export const EmailInputWrapper = styled.div`
 export const EmailButton = styled.button`
   background: transparent;
   padding-bottom: 5px;
-
   border: none;
 `;
 
@@ -107,10 +106,6 @@ export const EmailAreaWrapper = styled.div`
   width: 100%;
   @media (width > ${theme.device_sizing.size.tablet}) {
     grid-column-start: 2;
-    width: 80%;
-  }
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    width: 100%;
   }
 `;
 
