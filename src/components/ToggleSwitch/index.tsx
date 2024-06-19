@@ -2,7 +2,7 @@ import { switchTheme } from '@/store/store';
 import { useState, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import theme from '../static_theme';
+import theme from '@/utils/static_theme';
 
 export default function ToggleSwitch() {
   const dispatch = useDispatch();
@@ -30,7 +30,8 @@ const StyledLabel = styled.label<{ checked: boolean }>`
   text-indent: -9999px;
   width: 60px;
   height: 29px;
-  background: ${({ checked }) => (checked ? 'gray' : (props => props.theme.main_colours.black))};
+  background: ${({ checked }) =>
+    checked ? 'gray' : (props) => props.theme.main_colours.black};
   display: block;
   border-radius: 100px;
   position: relative;
@@ -41,7 +42,7 @@ const StyledLabel = styled.label<{ checked: boolean }>`
     top: 5px;
     width: 19px;
     height: 19px;
-    background: ${(props => props.theme.main_colours.white)};
+    background: ${(props) => props.theme.main_colours.white};
     border-radius: 90px;
     transition: 0.3s ease-in-out;
   }

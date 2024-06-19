@@ -7,10 +7,10 @@ import {
   SideMenuButton,
   Svg,
 } from './styled';
-import ToggleSwitch from '../ToggleSwitch';
+import ToggleSwitch from '@/components/ToggleSwitch/index';
 import { switchTheme } from '@/store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import theme from '../static_theme';
+import theme from '@/utils/static_theme';
 import { changeMenuState } from '@/store/store';
 import SvgMenu from '../SvgMenu';
 

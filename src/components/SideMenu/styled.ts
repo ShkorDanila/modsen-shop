@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import theme from '../static_theme';
+import theme from '../../utils/static_theme';
 
 interface ISideMenuStyled {
   isOpened: boolean;

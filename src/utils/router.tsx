@@ -1,6 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Layout from '@/pages/Layout';
-import Shop from '@/pages/Shop';
+import HomePage from '@/pages/Home';
+import ShopPage from '@/pages/Shop';
+import { useSelector } from 'react-redux';
+import { IProductList } from '@/store/store';
 
 export const router = createBrowserRouter([
   {
@@ -8,20 +11,28 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        index: true,
+        element: <Navigate to="/home"></Navigate>,
+      },
+      {
+        path: 'home',
+        element: <HomePage></HomePage>,
+      },
+      {
         path: 'shop',
-        element: <Shop></Shop>,
+        element: <ShopPage></ShopPage>,
       },
       {
         path: 'cart',
-        element: <Shop></Shop>,
+        element: <ShopPage></ShopPage>,
       },
       {
         path: 'contact',
-        element: <Shop></Shop>,
+        element: <ShopPage></ShopPage>,
       },
       {
         path: '*',
-        element: <Shop></Shop>,
+        element: <ShopPage></ShopPage>,
       },
     ],
   },

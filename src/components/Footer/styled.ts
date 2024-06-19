@@ -75,6 +75,7 @@ export const CheckBoxText = styled.div`
   font-size: ${theme.typefaces.mobile.body.small.size};
   font-weight: ${theme.typefaces.mobile.body.small.weight};
   color: ${(props) => props.theme.main_colours.black};
+  transition: 0.2s ease-in-out;
 `;
 
 export const EmailInputWrapper = styled.div`
@@ -137,6 +138,7 @@ export const Button = styled.button`
 
   font-family: ${theme.typefaces.font_primary};
   color: ${(props) => props.theme.neutral_colours.dark_grey};
+  transition: 0.2s ease-in-out;
 
   @media (width > ${theme.device_sizing.size.tablet}) {
     font-size: ${theme.typefaces.pc.heading[5].size};
@@ -158,6 +160,7 @@ export const Text = styled.div`
   font-size: ${theme.typefaces.mobile.heading[2].size};
   font-weight: ${theme.typefaces.mobile.heading[2].weight};
   color: ${(props) => props.theme.neutral_colours.dark_grey};
+  transition: 0.2s ease-in-out;
   width: 100%;
   height: 100%;
 
@@ -170,6 +173,7 @@ export const Text = styled.div`
 export const Span = styled.span`
   @media (width > ${theme.device_sizing.size.tablet}) {
     color: ${(props) => props.theme.main_colours.black};
+    transition: 0.2s ease-in-out;
   }
 `;
 
@@ -216,11 +220,13 @@ export const IconsText = styled.div`
   font-size: ${theme.typefaces.mobile.body.small.size};
   font-weight: ${theme.typefaces.mobile.body.small.weight};
   color: ${(props) => props.theme.main_colours.black};
+  transition: 0.2s ease-in-out;
 `;
 
 export const Line = styled.hr`
   size: 2;
   color: ${(props) => props.theme.main_colours.black};
+  transition: 0.2s ease-in-out;
   align-self: center;
   width: 50px;
   margin: 0;

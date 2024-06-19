@@ -1,6 +1,5 @@
 import React from 'react';
-const Shop: React.FC = () => {
-  return <div>
-  </div>;
+const ShopPage: React.FC = () => {
+  return <div></div>;
 };
-export default Shop;
+export default ShopPage;

@@ -6,8 +6,8 @@ import {
   NavbarContainer,
   NavElementsContainer,
 } from './styled';
-import ControlsMenu from '@/utils/ControlsMenu';
-import SideMenu from '@/utils/SideMenu';
+import ControlsMenu from '@/components/ControlsMenu';
+import SideMenu from '@/components/SideMenu';
 
 const Navbar: React.FC = () => {
   return (

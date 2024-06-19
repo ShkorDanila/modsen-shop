@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../static_theme';
+import theme from '../../utils/static_theme';
 
 export const ShopHeading = styled.h5`
   font-family: ${theme.typefaces.font_primary};

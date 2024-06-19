@@ -12,6 +12,13 @@
         "commands": ["nx format:write", "nx lint"],
         "parallel": false
       }
+    },
+    "fix-code-brute": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx format:write", "nx lint --fix"],
+        "parallel": false
+      }
     }
   }
 }

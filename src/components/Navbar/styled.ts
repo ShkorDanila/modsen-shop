@@ -13,9 +13,11 @@ export const LogoHeaderThemed = styled.span`
   }
   color: ${(props) => props.theme.main_colours.black};
   transition: 0.2s ease-in-out;
+  user-select: none;
 `;
 
 export const LogoHeaderAccent = styled.span`
+  user-select: none;
   font-family: ${theme.typefaces.font_logo};
   @media (width > ${theme.device_sizing.size.tablet}) {
     font-size: ${theme.typefaces.pc.logo.size};

@@ -24,7 +24,7 @@ import {
   Text,
 } from './styled';
 import { useSelector } from 'react-redux';
-import { Path, Svg } from '@/utils/ControlsMenu/styled';
+import { Path, Svg } from '@/components/ControlsMenu/styled';
 
 const FooterComponent: React.FC = () => {
   return (
