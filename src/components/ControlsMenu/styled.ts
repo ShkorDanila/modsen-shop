@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from '../../utils/static_theme';
 
 export const ShopHeading = styled.h5`
+  text-decoration: none;
   font-family: ${theme.typefaces.font_primary};
   font-size: ${theme.typefaces.pc.heading[5].size};
   font-weight: ${theme.typefaces.pc.heading[5].weight};

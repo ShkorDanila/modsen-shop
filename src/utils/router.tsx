@@ -2,8 +2,6 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Layout from '@/pages/Layout';
 import HomePage from '@/pages/Home';
 import ShopPage from '@/pages/Shop';
-import { useSelector } from 'react-redux';
-import { IProductList } from '@/store/store';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +19,12 @@ export const router = createBrowserRouter([
       {
         path: 'shop',
         element: <ShopPage></ShopPage>,
+        children: [
+          {
+            path: ':id',
+            element: <ShopPage></ShopPage>,
+          },
+        ],
       },
       {
         path: 'cart',

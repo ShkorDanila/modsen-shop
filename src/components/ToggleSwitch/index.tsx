@@ -8,6 +8,7 @@ export default function ToggleSwitch() {
   const dispatch = useDispatch();
 
   const [switchState, setSwitchState] = useState(true);
+
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
     setSwitchState(!switchState);
     dispatch(switchTheme(switchState === true ? theme.dark : theme.light));

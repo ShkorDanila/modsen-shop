@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import theme from '@/utils/static_theme';
 import { changeMenuState } from '@/store/store';
 import SvgMenu from '../SvgMenu';
+import { Link } from 'react-router-dom';
 
 const ControlsMenu: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ const ControlsMenu: React.FC = () => {
   return (
     <>
       <ControlsDesktopContainer>
-        <ShopHeading>Shop</ShopHeading>
+        <Link to={'shop'} style={{ textDecoration: 'none' }}>
+          <ShopHeading>Shop</ShopHeading>
+        </Link>
         <ToggleSwitch></ToggleSwitch>
         <Svg
           width="21"

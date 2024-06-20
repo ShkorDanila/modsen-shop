@@ -1,42 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { CardsWrapper, HeaderSection, HeaderShopLatest, LatestCardsWrapper, ViewAllButton, ViewAllWrapper } from './styled';
+import {
+  CardsWrapper,
+  HeaderSection,
+  HeaderShopLatest,
+  LatestCardsWrapper,
+  ViewAllButton,
+  ViewAllWrapper,
+} from './styled';
 import Card from '../Card';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export interface ISmallProduct {
-    image: string;
-    title: string;
-    price: number;
+  image: string;
+  title: string;
+  price: number;
 }
 
-const LatestCards:React.FC = () => {
+const LatestCards: React.FC = () => {
+  const [latestProducts, setLatestProducts] = useState<ISmallProduct[]>([]);
+  const productList = useSelector((state: any) => state.productList.value);
 
-    const [latestProducts, setLatestProducts] = useState<ISmallProduct[]>([])
-    const productList = useSelector((state: any) => state.productList.value);
+  useEffect(() => {
+    if (productList.length > 0) {
+      setLatestProducts(productList.slice(0, 6));
+    }
+  }, [productList]);
 
-    useEffect(() => {
-        if (productList.length > 0) {
-            setLatestProducts(productList.slice(0, 7));
-        }
-      }, [productList]);
-
-    return (
-        <>
+  return (
+    <>
       {latestProducts.length > 0 && (
         <LatestCardsWrapper>
-            <HeaderSection>
-                <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
-                <ViewAllWrapper>
-                    <ViewAllButton>View All</ViewAllButton>
-                </ViewAllWrapper>
-            </HeaderSection>
-            <CardsWrapper>
-                { latestProducts.map((product) => <Card {...product}></Card>)}
-            </CardsWrapper>
+          <HeaderSection>
+            <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
+            <ViewAllWrapper>
+              <Link to={'shop'} style={{ textDecoration: 'none' }}>
+                <ViewAllButton>View All</ViewAllButton>
+              </Link>
+            </ViewAllWrapper>
+          </HeaderSection>
+          <CardsWrapper>
+            {latestProducts.map((product) => (
+              <Card {...product}></Card>
+            ))}
+          </CardsWrapper>
         </LatestCardsWrapper>
-      )
-    }
+      )}
     </>
-    )
-}
+  );
+};
 export default LatestCards;

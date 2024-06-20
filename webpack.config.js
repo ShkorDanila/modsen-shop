@@ -5,7 +5,7 @@ const { join } = require('path');
 
 module.exports = {
   output: {
-    path: join(__dirname, './dist/modsen-shop'),
+    path: join(__dirname, 'dist/modsen-shop'),
     publicPath: '/',
   },
   devServer: {
