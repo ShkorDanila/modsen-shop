@@ -1,7 +1,7 @@
-import { switchTheme } from '@/store/store';
 import { useState, ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { switchTheme } from '@/store/store';
 import theme from '@/utils/static_theme';
 
 export default function ToggleSwitch() {

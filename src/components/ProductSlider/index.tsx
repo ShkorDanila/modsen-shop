@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { Svg } from '../ControlsMenu/styled';
 import {
   ButtonsCarousel,
   Carousel,
@@ -14,10 +17,7 @@ import {
   SliderImage,
   ViewProductButton,
 } from './styled';
-import { useDispatch, useSelector } from 'react-redux';
 import { IProductList } from '@/store/store';
-import styled from 'styled-components';
-import { Svg } from '../ControlsMenu/styled';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

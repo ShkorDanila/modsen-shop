@@ -1,5 +1,5 @@
-import theme from '@/utils/static_theme';
 import styled from 'styled-components';
+import theme from '@/utils/static_theme';
 
 export const ShopPageWrapper = styled.div`
   @media (width > ${theme.device_sizing.size.tablet}) {

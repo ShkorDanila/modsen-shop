@@ -1,10 +1,10 @@
-import Navbar from '@/components/Navbar/index';
 import { Navigate, Outlet, redirect } from 'react-router-dom';
-import { Footer, Header, LayoutContainer, Main } from './styled';
 import { ThemeProvider } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import FooterComponent from '@/components/Footer';
 import { useEffect } from 'react';
+import { Footer, Header, LayoutContainer, Main } from './styled';
+import FooterComponent from '@/components/Footer';
+import Navbar from '@/components/Navbar/index';
 import getProducts from '@/utils/getProductsApi';
 import { setProductList } from '@/store/store';
 

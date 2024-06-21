@@ -1,5 +1,5 @@
-import theme from '@/utils/static_theme';
 import styled from 'styled-components';
+import theme from '@/utils/static_theme';
 
 export const FilterWrapper = styled.section``;
 
@@ -17,7 +17,7 @@ export const FilterOptionsContainer = styled.div<IFilterMenuState>`
     width: 90%;
   }
   
-  ${props => !props.isOpened && `display:none;`}
+  ${props => !props.isOpened && 'display:none;'}
 `;
 
 export const FilterInput = styled.input`
@@ -154,7 +154,7 @@ export const BottomSection = styled.div`
   
   width: 100%;
   grid-template-columns: 1fr 1fr;
-`
+`;
 
 export const StyledPriceHeader = styled.div`
   font-family: ${theme.typefaces.font_primary};
@@ -169,7 +169,7 @@ export const StyledPriceHeader = styled.div`
   }
 
   color: ${props => props.theme.main_colours.black}
-`
+`;
 
 export const FilterCloseButton = styled.button`
   all:unset;
@@ -186,7 +186,7 @@ export const FilterCloseButton = styled.button`
   display: flex;
    flex-direction: row-reverse;
   color: ${props => props.theme.main_colours.accent}
-`
+`;
 
 export const FilterOpenButton = styled.button`
   all:unset;
@@ -203,7 +203,7 @@ export const FilterOpenButton = styled.button`
   }
 
   color: ${props => props.theme.main_colours.accent}
-`
+`;
 
 export const FilterOpenContainer = styled.div<IFilterMenuState>`
   display: grid;
@@ -213,7 +213,7 @@ export const FilterOpenContainer = styled.div<IFilterMenuState>`
 
   
   ${(props) => props.isOpened && 'display: none;'}
-`
+`;
 
 export const FilterCloseContainer = styled.div`
   display: grid;
@@ -221,4 +221,4 @@ export const FilterCloseContainer = styled.div`
   place-items:center;
   width: fit-content;
   grid-auto-flow: column;
-`
+`;

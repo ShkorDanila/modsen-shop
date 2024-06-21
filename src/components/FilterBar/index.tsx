@@ -1,4 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Path, Svg } from '../ControlsMenu/styled';
 import {
   BottomSection,
   DualRanger,
@@ -17,49 +19,47 @@ import {
   FilterOpenContainer,
   FilterCloseContainer,
 } from './styled';
-import { Path, Svg } from '../ControlsMenu/styled';
-import { useDispatch, useSelector } from 'react-redux';
 import { changeFilterState } from '@/store/store';
 const FilterBar: React.FC = () => {
 
-  const dispatch = useDispatch()
-  const isFilterOpened = useSelector((state: any) => state.isFilterOpened.value)
+  const dispatch = useDispatch();
+  const isFilterOpened = useSelector((state: any) => state.isFilterOpened.value);
 
-  const [firstValue, setFirstValue] = useState<number>(0)
-  const [secondValue, setSecondValue] = useState<number>(0)
-  const [maxOfPrice, setMaxOfPrice] = useState<number>(100)
-  const [minValue, setMinValue] = useState<number>(0)
-  const [maxValue, setMaxValue] = useState<number>(0)
+  const [firstValue, setFirstValue] = useState<number>(0);
+  const [secondValue, setSecondValue] = useState<number>(0);
+  const [maxOfPrice, setMaxOfPrice] = useState<number>(100);
+  const [minValue, setMinValue] = useState<number>(0);
+  const [maxValue, setMaxValue] = useState<number>(0);
 
   function handleFirstSlider (e: ChangeEvent<HTMLInputElement>) {
-    setFirstValue(Number(e.currentTarget.value))
+    setFirstValue(Number(e.currentTarget.value));
     if(firstValue > secondValue) {
-        setMinValue(secondValue)
-        setMaxValue(firstValue)
+        setMinValue(secondValue);
+        setMaxValue(firstValue);
         return;
     }
-        setMinValue(firstValue)
-        setMaxValue(secondValue)
+        setMinValue(firstValue);
+        setMaxValue(secondValue);
         return;
   }
   function handleSecondSlider (e: ChangeEvent<HTMLInputElement>) {
-    setSecondValue(Number(e.currentTarget.value))
+    setSecondValue(Number(e.currentTarget.value));
     if(firstValue > secondValue) {
-        setMinValue(secondValue)
-        setMaxValue(firstValue)
+        setMinValue(secondValue);
+        setMaxValue(firstValue);
         return;
     }
-        setMinValue(firstValue)
-        setMaxValue(secondValue)
+        setMinValue(firstValue);
+        setMaxValue(secondValue);
         return;
   }
 
   useEffect(() => {
-    setFirstValue(maxOfPrice*0.25)
-    setSecondValue(maxOfPrice*0.75)
-    setMinValue(maxOfPrice*0.25)
-    setMaxValue(maxOfPrice*0.75)
-  }, [maxOfPrice])
+    setFirstValue(maxOfPrice*0.25);
+    setSecondValue(maxOfPrice*0.75);
+    setMinValue(maxOfPrice*0.25);
+    setMaxValue(maxOfPrice*0.75);
+  }, [maxOfPrice]);
   
 
   return (

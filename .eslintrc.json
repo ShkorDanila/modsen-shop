@@ -6,7 +6,28 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "no-console": "warn",
+        "quotes": ["error", "single"],
+        "jsx-quotes": ["error", "prefer-double"],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi": ["error", "always"],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type"
+            ]
+          }
+        ]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
@@ -21,5 +42,5 @@
       "rules": {}
     }
   ],
-  "extends": ["plugin:@nx/react"]
+  "extends": ["plugin:@nx/react", "prettier"]
 }

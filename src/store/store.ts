@@ -1,5 +1,5 @@
-import theme from '@/utils/static_theme';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import theme from '@/utils/static_theme';
 
 export interface IProductList {
   id: number;

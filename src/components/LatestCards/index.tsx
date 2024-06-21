@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Card from '../Card';
 import {
   CardsWrapper,
   HeaderSection,
@@ -7,9 +10,6 @@ import {
   ViewAllButton,
   ViewAllWrapper,
 } from './styled';
-import Card from '../Card';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 export interface ISmallProduct {
   image: string;

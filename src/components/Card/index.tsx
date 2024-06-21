@@ -1,6 +1,6 @@
 import React from 'react';
-import { HoverEffectDiv, PriceHeader, ProductImage, StyledCard, TitleHeader } from './styled';
 import { ISmallProduct } from '../LatestCards';
+import { HoverEffectDiv, PriceHeader, ProductImage, StyledCard, TitleHeader } from './styled';
 
 
 const Card:React.FC<ISmallProduct> = (product) => {
@@ -13,6 +13,6 @@ const Card:React.FC<ISmallProduct> = (product) => {
             <TitleHeader>{product.title}</TitleHeader>
             <PriceHeader>{product.price}$</PriceHeader>
         </StyledCard>
-    )
-}
+    );
+};
 export default Card;

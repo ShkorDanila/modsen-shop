@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import SvgMenu from '../SvgMenu';
 import {
   ControlsDesktopContainer,
   ControlsMobileContainer,
@@ -9,11 +12,8 @@ import {
 } from './styled';
 import ToggleSwitch from '@/components/ToggleSwitch/index';
 import { switchTheme } from '@/store/store';
-import { useDispatch, useSelector } from 'react-redux';
 import theme from '@/utils/static_theme';
 import { changeMenuState } from '@/store/store';
-import SvgMenu from '../SvgMenu';
-import { Link } from 'react-router-dom';
 
 const ControlsMenu: React.FC = () => {
   const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const ControlsMenu: React.FC = () => {
           onChange={() => {
             setSwitchState(!switchState);
             dispatch(
-              switchTheme(switchState === true ? theme.dark : theme.light)
+              switchTheme(switchState === true ? theme.dark : theme.light),
             );
           }}
         ></input>
