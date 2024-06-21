@@ -36,6 +36,16 @@ const isMenuOpenedSlice = createSlice({
   },
 });
 
+const isFilterOpenedSlice = createSlice({
+  name: 'isFilterOpened',
+  initialState: { value: false },
+  reducers: {
+    changeFilterState: (state, action) => {
+      state.value = !state.value;
+    },
+  },
+});
+
 const productListSlice = createSlice({
   name: 'productList',
   initialState: { value: productListInitial },
@@ -49,11 +59,13 @@ const productListSlice = createSlice({
 export const { switchTheme } = currentThemeSlice.actions;
 export const { changeMenuState } = isMenuOpenedSlice.actions;
 export const { setProductList } = productListSlice.actions;
+export const { changeFilterState } = isFilterOpenedSlice.actions;
 
 export const store = configureStore({
   reducer: {
     currentTheme: currentThemeSlice.reducer,
     isMenuOpened: isMenuOpenedSlice.reducer,
     productList: productListSlice.reducer,
+    isFilterOpened: isFilterOpenedSlice.reducer,
   },
 });
