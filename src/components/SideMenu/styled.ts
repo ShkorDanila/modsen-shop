@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+
 import theme from '../../utils/static_theme';
 
 interface ISideMenuStyled {

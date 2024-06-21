@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { SideMenuStyled, StyledMenuOption, Ul } from './styled';
+
 import { changeMenuState } from '@/store/store';
+
+import { SideMenuStyled, StyledMenuOption, Ul } from './styled';
 const SideMenu: React.FC = () => {
   const dispatch = useDispatch();
   return (

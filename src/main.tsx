@@ -1,9 +1,11 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { RouterProvider } from 'react-router-dom';
+
 import router from '@/utils/router';
+
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,8 +13,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <StrictMode>
-  <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );

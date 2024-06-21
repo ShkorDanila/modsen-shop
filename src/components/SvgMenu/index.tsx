@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Path, Rect, Svg } from '../ControlsMenu/styled';
 
 type PropTypes = {

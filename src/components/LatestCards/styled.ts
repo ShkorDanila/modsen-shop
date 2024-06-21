@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import theme from '@/utils/static_theme';
 
 export const LatestCardsWrapper = styled.section`

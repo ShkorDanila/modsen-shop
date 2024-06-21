@@ -1,6 +1,8 @@
 import React from 'react';
-import { HeaderShop, ProductsSection, ShopPageWrapper } from './styled';
+
 import FilterBar from '@/components/FilterBar';
+
+import { HeaderShop, ProductsSection, ShopPageWrapper } from './styled';
 const ShopPage: React.FC = () => {
   return (
     <ShopPageWrapper>

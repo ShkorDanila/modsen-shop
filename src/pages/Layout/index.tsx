@@ -1,12 +1,14 @@
-import { Navigate, Outlet, redirect } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { Footer, Header, LayoutContainer, Main } from './styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
 import FooterComponent from '@/components/Footer';
 import Navbar from '@/components/Navbar/index';
-import getProducts from '@/utils/getProductsApi';
 import { setProductList } from '@/store/store';
+import getProducts from '@/utils/getProductsApi';
+
+import { Footer, Header, LayoutContainer, Main } from './styled';
 
 const Layout: React.FC = () => {
   const dispatch = useDispatch();

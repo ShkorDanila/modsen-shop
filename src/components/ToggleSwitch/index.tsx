@@ -1,6 +1,7 @@
-import { useState, ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+
 import { switchTheme } from '@/store/store';
 import theme from '@/utils/static_theme';
 
@@ -9,7 +10,7 @@ export default function ToggleSwitch() {
 
   const [switchState, setSwitchState] = useState(true);
 
-  function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleOnChange() {
     setSwitchState(!switchState);
     dispatch(switchTheme(switchState === true ? theme.dark : theme.light));
   }

@@ -1,5 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
+import { Path, Svg } from '@/components/ControlsMenu/styled';
+
 import {
   Button,
   Buttons,
@@ -24,7 +27,6 @@ import {
   StyledPath,
   Text,
 } from './styled';
-import { Path, Svg } from '@/components/ControlsMenu/styled';
 
 const FooterComponent: React.FC = () => {
   return (

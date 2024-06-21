@@ -1,14 +1,14 @@
 import styled from 'styled-components';
+
 import theme from '@/utils/static_theme';
 
 export const FilterWrapper = styled.section``;
 
 interface IFilterMenuState {
-  isOpened: boolean
+  isOpened: boolean;
 }
 
 export const FilterOptionsContainer = styled.div<IFilterMenuState>`
-
   display: grid;
   grid-auto-flow: row;
   gap: 0.4rem;
@@ -16,8 +16,8 @@ export const FilterOptionsContainer = styled.div<IFilterMenuState>`
   @media (width <= ${theme.device_sizing.size.tablet}) {
     width: 90%;
   }
-  
-  ${props => !props.isOpened && 'display:none;'}
+
+  ${(props) => !props.isOpened && 'display:none;'}
 `;
 
 export const FilterInput = styled.input`
@@ -75,8 +75,8 @@ export const Dropdown = styled.select`
     font-size: ${theme.typefaces.mobile.body.small.size};
     font-weight: ${theme.typefaces.mobile.body.small.weight};
   }
-  
-  color: ${props => props.theme.main_colours.black}
+
+  color: ${(props) => props.theme.main_colours.black};
 `;
 
 export const StyledOption = styled.option`
@@ -91,7 +91,7 @@ export const StyledOption = styled.option`
     font-weight: ${theme.typefaces.mobile.body.small.weight};
   }
 
-  color: ${props => props.theme.main_colours.black}
+  color: ${(props) => props.theme.main_colours.black};
 `;
 
 export const DualRanger = styled.div`
@@ -120,7 +120,7 @@ export const StyledInputRange = styled.input`
     width: 15px;
     height: 15px;
     border-radius: 10px;
-    background-color:  ${props => props.theme.main_colours.black}
+    background-color: ${(props) => props.theme.main_colours.black};
   }
   &::-moz-slider-thumb {
     appearance: none;
@@ -128,7 +128,7 @@ export const StyledInputRange = styled.input`
     width: 15px;
     height: 15px;
     border-radius: 10px;
-    background-color:  ${props => props.theme.main_colours.black}
+    background-color: ${(props) => props.theme.main_colours.black};
   }
   margin: 0;
 `;
@@ -143,15 +143,15 @@ export const ProgressBar = styled.span<IProgressBarValues>`
   pointer-events: none;
   user-select: none;
   position: absolute;
-  background-color:  ${props => props.theme.main_colours.black};
-  left: ${(props) => props.lowValue / props.maxValue * 100}%;
-  right: calc(100% - ${(props) => props.highValue / props.maxValue * 100}% );
+  background-color: ${(props) => props.theme.main_colours.black};
+  left: ${(props) => (props.lowValue / props.maxValue) * 100}%;
+  right: calc(100% - ${(props) => (props.highValue / props.maxValue) * 100}%);
   height: 3px;
 `;
 
 export const BottomSection = styled.div`
   display: grid;
-  
+
   width: 100%;
   grid-template-columns: 1fr 1fr;
 `;
@@ -168,11 +168,11 @@ export const StyledPriceHeader = styled.div`
     font-weight: ${theme.typefaces.mobile.body.small.weight};
   }
 
-  color: ${props => props.theme.main_colours.black}
+  color: ${(props) => props.theme.main_colours.black};
 `;
 
 export const FilterCloseButton = styled.button`
-  all:unset;
+  all: unset;
   font-family: ${theme.typefaces.font_primary};
   @media (width > ${theme.device_sizing.size.tablet}) {
     font-size: ${theme.typefaces.pc.heading[5].size};
@@ -184,12 +184,12 @@ export const FilterCloseButton = styled.button`
     font-weight: ${theme.typefaces.mobile.body.small.weight};
   }
   display: flex;
-   flex-direction: row-reverse;
-  color: ${props => props.theme.main_colours.accent}
+  flex-direction: row-reverse;
+  color: ${(props) => props.theme.main_colours.accent};
 `;
 
 export const FilterOpenButton = styled.button`
-  all:unset;
+  all: unset;
   margin-left: 0.6rem;
   font-family: ${theme.typefaces.font_primary};
   @media (width > ${theme.device_sizing.size.tablet}) {
@@ -202,23 +202,22 @@ export const FilterOpenButton = styled.button`
     font-weight: ${theme.typefaces.mobile.body.small.weight};
   }
 
-  color: ${props => props.theme.main_colours.accent}
+  color: ${(props) => props.theme.main_colours.accent};
 `;
 
 export const FilterOpenContainer = styled.div<IFilterMenuState>`
   display: grid;
-  place-items:center;
+  place-items: center;
   width: fit-content;
   grid-auto-flow: column;
 
-  
   ${(props) => props.isOpened && 'display: none;'}
 `;
 
 export const FilterCloseContainer = styled.div`
   display: grid;
   gap: 0.4rem;
-  place-items:center;
+  place-items: center;
   width: fit-content;
   grid-auto-flow: column;
 `;

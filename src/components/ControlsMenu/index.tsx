@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import ToggleSwitch from '@/components/ToggleSwitch/index';
+import { switchTheme } from '@/store/store';
+import { changeMenuState } from '@/store/store';
+import theme from '@/utils/static_theme';
+
 import SvgMenu from '../SvgMenu';
 import {
   ControlsDesktopContainer,
@@ -10,10 +16,6 @@ import {
   SideMenuButton,
   Svg,
 } from './styled';
-import ToggleSwitch from '@/components/ToggleSwitch/index';
-import { switchTheme } from '@/store/store';
-import theme from '@/utils/static_theme';
-import { changeMenuState } from '@/store/store';
 
 const ControlsMenu: React.FC = () => {
   const dispatch = useDispatch();

@@ -1,23 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { Svg } from '../ControlsMenu/styled';
-import {
-  ButtonsCarousel,
-  Carousel,
-  CarouselButton,
-  CircleFill,
-  CircleStroke,
-  InfoSection,
-  LeftArrow,
-  ProductCost,
-  ProductName,
-  ProductSliderWrapper,
-  RightArrow,
-  SliderImage,
-  ViewProductButton,
-} from './styled';
+import { useSelector } from 'react-redux';
+
 import { IProductList } from '@/store/store';
+
+import { Svg } from '../ControlsMenu/styled';
+import * as styled from './styled';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,26 +20,26 @@ const ProductSlider: React.FC<any> = () => {
   return (
     <>
       {sliderProducts.length > 0 && (
-        <ProductSliderWrapper aria-label="Image Slider">
-          <Carousel>
+        <styled.ProductSliderWrapper aria-label="Image Slider">
+          <styled.Carousel>
             {sliderProducts.map((product, iterator) => (
-              <SliderImage
+              <styled.SliderImage
                 key={iterator}
                 currentIndex={currentIndex}
                 image={product.image}
               >
-                <InfoSection>
-                  <ProductName>{product.title}</ProductName>
-                  <ProductCost>{product.price}$</ProductCost>
-                  <ViewProductButton>View Product</ViewProductButton>
-                </InfoSection>
-              </SliderImage>
+                <styled.InfoSection>
+                  <styled.ProductName>{product.title}</styled.ProductName>
+                  <styled.ProductCost>{product.price}$</styled.ProductCost>
+                  <styled.ViewProductButton>View Product</styled.ViewProductButton>
+                </styled.InfoSection>
+              </styled.SliderImage>
             ))}
-          </Carousel>
+          </styled.Carousel>
 
-          <ButtonsCarousel>
+          <styled.ButtonsCarousel>
             {sliderProducts.map((_, iterator) => (
-              <CarouselButton onClick={() => setCurrentIndex(iterator)}>
+              <styled.CarouselButton onClick={() => setCurrentIndex(iterator)}>
                 {iterator === currentIndex ? (
                   <Svg
                     width="18"
@@ -61,7 +48,7 @@ const ProductSlider: React.FC<any> = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <CircleFill cx="9" cy="9" r="5" />
+                    <styled.CircleFill cx="9" cy="9" r="5" />
                   </Svg>
                 ) : (
                   <Svg
@@ -71,13 +58,13 @@ const ProductSlider: React.FC<any> = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <CircleStroke cx="9" cy="9" r="4" stroke="white" />
+                    <styled.CircleStroke cx="9" cy="9" r="4" stroke="white" />
                   </Svg>
                 )}
-              </CarouselButton>
+              </styled.CarouselButton>
             ))}
-          </ButtonsCarousel>
-        </ProductSliderWrapper>
+          </styled.ButtonsCarousel>
+        </styled.ProductSliderWrapper>
       )}
     </>
   );
