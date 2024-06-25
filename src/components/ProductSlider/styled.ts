@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import theme from '@/utils/static_theme';
-
 interface ISliderImage {
   image: string;
   currentIndex: number;
@@ -82,37 +80,31 @@ export const CarouselButton = styled.button`
   -webkit-tap-highlight-color: transparent;
 `;
 
-export const CircleFill = styled.circle`
-  fill: black;
-`;
-
-export const CircleStroke = styled.circle`
-  stroke: black;
-`;
-
 export const ProductName = styled.h1`
-  font-family: ${theme.typefaces.font_primary};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
   font-weight: medium;
-  font-size: ${theme.typefaces.mobile.heading[1].size};
-  line-height: ${theme.typefaces.mobile.heading[1].line_height};
+  font-size: ${(props) => props.theme.typefaces.mobile.heading[1].size};
+  line-height: ${(props) =>
+    props.theme.typefaces.mobile.heading[1].line_height};
   color: white;
   margin-left: 0.3rem;
 `;
 
 export const ProductCost = styled.h1`
-  font-family: ${theme.typefaces.font_primary};
-  font-weight: ${theme.typefaces.mobile.heading[3].weight};
-  font-size: ${theme.typefaces.mobile.heading[3].size};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
+  font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
   color: white;
   margin-left: 0.3rem;
 `;
 
 export const ViewProductButton = styled.button`
   all: unset;
-  font-family: ${theme.typefaces.font_primary};
-  font-weight: ${theme.typefaces.mobile.body.small.weight};
-  font-size: ${theme.typefaces.mobile.body.small.size};
-  line-height: ${theme.typefaces.mobile.body.small.line_height};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+  font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+  line-height: ${(props) =>
+    props.theme.typefaces.mobile.body.small.line_height};
   color: white;
   margin-left: 0.3rem;
   margin-bottom: 0.4rem;

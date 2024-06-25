@@ -1,7 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import theme from '../../utils/static_theme';
-
 interface ISideMenuStyled {
   isOpened: boolean;
 }
@@ -21,6 +19,7 @@ const slideIn = keyframes`
 const animationIn = css`
   animation: ${slideIn} 0.6s ease-out;
   width: 85%;
+  height: 100vh;
   display: visible;
 `;
 
@@ -30,11 +29,10 @@ const animationOut = css`
 `;
 
 export const SideMenuStyled = styled.div<ISideMenuStyled>`
-  @media (width > ${theme.device_sizing.size.tablet}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
   flex-grow: 1;
-  height: 100%;
   width: 85%;
   flex: 1;
   background-color: transparent;
@@ -50,9 +48,10 @@ export const Ul = styled.ul`
 `;
 
 export const StyledMenuOption = styled.h1`
-  font-size: ${theme.typefaces.mobile.heading[1].size};
-  font-weight: ${theme.typefaces.mobile.heading[1].weight};
-  line-height: ${theme.typefaces.mobile.heading[1].line_height};
-  font-family: ${theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.mobile.heading[1].size};
+  font-weight: ${(props) => props.theme.typefaces.mobile.heading[1].weight};
+  line-height: ${(props) =>
+    props.theme.typefaces.mobile.heading[1].line_height};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
   color: ${(props) => props.theme.main_colours.black};
 `;

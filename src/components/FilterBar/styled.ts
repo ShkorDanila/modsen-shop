@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import theme from '@/utils/static_theme';
-
 export const FilterWrapper = styled.section``;
 
 interface IFilterMenuState {
@@ -13,7 +11,7 @@ export const FilterOptionsContainer = styled.div<IFilterMenuState>`
   grid-auto-flow: row;
   gap: 0.4rem;
   width: 20%;
-  @media (width <= ${theme.device_sizing.size.tablet}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
     width: 90%;
   }
 
@@ -26,26 +24,26 @@ export const FilterInput = styled.input`
   width: 100%;
   padding: 0.6rem;
   padding-right: 0;
-  font-family: ${theme.typefaces.font_primary};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
 
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
 `;
 
 export const FilterInputContainer = styled.div`
   position: relative;
   width: 100%;
-  @media (width <= ${theme.device_sizing.size.tablet}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
     min-width: 100px;
   }
-  @media (width > ${theme.device_sizing.size.tablet}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
     min-width: 200px;
   }
 `;
@@ -65,30 +63,30 @@ export const Dropdown = styled.select`
   border: solid ${(props) => props.theme.neutral_colours.grey} 1px;
   border-radius: 0.3rem;
 
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
 
   color: ${(props) => props.theme.main_colours.black};
 `;
 
 export const StyledOption = styled.option`
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
 
   color: ${(props) => props.theme.main_colours.black};
@@ -157,15 +155,15 @@ export const BottomSection = styled.div`
 `;
 
 export const StyledPriceHeader = styled.div`
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
 
   color: ${(props) => props.theme.main_colours.black};
@@ -173,15 +171,15 @@ export const StyledPriceHeader = styled.div`
 
 export const FilterCloseButton = styled.button`
   all: unset;
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
   display: flex;
   flex-direction: row-reverse;
@@ -191,15 +189,15 @@ export const FilterCloseButton = styled.button`
 export const FilterOpenButton = styled.button`
   all: unset;
   margin-left: 0.6rem;
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
 
   color: ${(props) => props.theme.main_colours.accent};

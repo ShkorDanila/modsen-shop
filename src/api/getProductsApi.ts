@@ -1,4 +1,4 @@
-import { GET_ALL_PRODUCTS_API } from '@/constants/GET_ALL_PRODUCTS_API';
+import { GET_ALL_PRODUCTS_API } from '@/constants/productApiRequest';
 
 export default async function getProducts() {
   const response = await fetch(GET_ALL_PRODUCTS_API);

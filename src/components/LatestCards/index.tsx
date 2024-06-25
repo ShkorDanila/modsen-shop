@@ -16,6 +16,7 @@ export interface ISmallProduct {
   image: string;
   title: string;
   price: number;
+  id: number;
 }
 
 const LatestCards: React.FC = () => {

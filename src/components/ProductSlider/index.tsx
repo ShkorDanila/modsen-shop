@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { IProductList } from '@/store/store';
+import { IProductList } from '@/store/productListSlice';
 
-import { Svg } from '../ControlsMenu/styled';
 import * as styled from './styled';
+import { ChosenMenuDotSvg } from '@/assets/ChosenMenuDotSvg';
+import { MenuDotSvg } from '@/assets/MenuDotSvg';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,7 +32,9 @@ const ProductSlider: React.FC<any> = () => {
                 <styled.InfoSection>
                   <styled.ProductName>{product.title}</styled.ProductName>
                   <styled.ProductCost>{product.price}$</styled.ProductCost>
-                  <styled.ViewProductButton>View Product</styled.ViewProductButton>
+                  <styled.ViewProductButton>
+                    View Product
+                  </styled.ViewProductButton>
                 </styled.InfoSection>
               </styled.SliderImage>
             ))}
@@ -41,25 +44,9 @@ const ProductSlider: React.FC<any> = () => {
             {sliderProducts.map((_, iterator) => (
               <styled.CarouselButton onClick={() => setCurrentIndex(iterator)}>
                 {iterator === currentIndex ? (
-                  <Svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <styled.CircleFill cx="9" cy="9" r="5" />
-                  </Svg>
+                  <ChosenMenuDotSvg></ChosenMenuDotSvg>
                 ) : (
-                  <Svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <styled.CircleStroke cx="9" cy="9" r="4" stroke="white" />
-                  </Svg>
+                  <MenuDotSvg></MenuDotSvg>
                 )}
               </styled.CarouselButton>
             ))}

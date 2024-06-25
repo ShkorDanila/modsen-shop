@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { changeMenuState } from '@/store/store';
+import { changeMenuState } from '@/store/isMenuOpenedSlice';
 
 import { SideMenuStyled, StyledMenuOption, Ul } from './styled';
 const SideMenu: React.FC = () => {

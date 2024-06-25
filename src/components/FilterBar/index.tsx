@@ -1,199 +1,152 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeFilterState } from '@/store/store';
+import { changeFilterState } from '@/store/isFilterOpenedSlice';
+import * as styled from './styled';
+import { FilterBurgerSvg } from '@/assets/FilterBurgerSvg';
+import { SearchSvg } from '@/assets/SearchSvg';
+import { setFilterOptions } from '@/store/filterOptionsSlice';
 
-import { Path, Svg } from '../ControlsMenu/styled';
-import {
-  BottomSection,
-  Dropdown,
-  DualRanger,
-  FilterCloseButton,
-  FilterCloseContainer,
-  FilterInput,
-  FilterInputContainer,
-  FilterOpenButton,
-  FilterOpenContainer,
-  FilterOptionsContainer,
-  FilterWrapper,
-  ProgressBar,
-  SearchIcon,
-  StyledInputRange,
-  StyledOption,
-  StyledPriceHeader,
-} from './styled';
-const FilterBar: React.FC = () => {
+interface IFilterContants {
+  maxValueOfPrice: number;
+  categoriesList: string[];
+}
+
+const FilterBar: React.FC<IFilterContants> = (constantProps) => {
   const dispatch = useDispatch();
-  const isFilterOpened = useSelector(
-    (state: any) => state.isFilterOpened.value,
-  );
 
   const [firstValue, setFirstValue] = useState<number>(0);
-  const [secondValue, setSecondValue] = useState<number>(0);
-  const [maxOfPrice, setMaxOfPrice] = useState<number>(100);
-  const [minValue, setMinValue] = useState<number>(0);
-  const [maxValue, setMaxValue] = useState<number>(0);
-
+  const [secondValue, setSecondValue] = useState<number>(1000);
+  const [minStoredVal,setMinStoredVal] = useState<number>(0);
+  const [maxStoredVal,setMaxStoredVal] = useState<number>(1000);
+  const [shopByOptions, setShopByOptions] = useState<any>([])
+  
+  const maxOfPrice = constantProps.maxValueOfPrice;
+  
   function handleFirstSlider(e: ChangeEvent<HTMLInputElement>) {
     setFirstValue(Number(e.currentTarget.value));
     if (firstValue > secondValue) {
-      setMinValue(secondValue);
-      setMaxValue(firstValue);
+      dispatch(setFilterOptions({maxPrice: Math.floor(firstValue)}))
+      setMaxStoredVal(Math.floor(firstValue))
+      dispatch(setFilterOptions({minPrice: Math.floor(secondValue)}))
+      setMinStoredVal(Math.floor(secondValue))
       return;
     }
-    setMinValue(firstValue);
-    setMaxValue(secondValue);
+    dispatch(setFilterOptions({minPrice: Math.floor(firstValue)}))
+    setMinStoredVal(Math.floor(firstValue))
+    dispatch(setFilterOptions({maxPrice: Math.floor(secondValue)}))
+    setMaxStoredVal(Math.floor(secondValue))
     return;
-  }
+    }
   function handleSecondSlider(e: ChangeEvent<HTMLInputElement>) {
     setSecondValue(Number(e.currentTarget.value));
     if (firstValue > secondValue) {
-      setMinValue(secondValue);
-      setMaxValue(firstValue);
+      dispatch(setFilterOptions({maxPrice: Math.floor(firstValue)}))
+      setMaxStoredVal(Math.floor(firstValue))
+      dispatch(setFilterOptions({minPrice: Math.floor(secondValue)}))
+      setMinStoredVal(Math.floor(secondValue))
       return;
     }
-    setMinValue(firstValue);
-    setMaxValue(secondValue);
+    dispatch(setFilterOptions({minPrice: Math.floor(firstValue)}))
+    setMinStoredVal(Math.floor(firstValue))
+    dispatch(setFilterOptions({maxPrice: Math.floor(secondValue)}))
+    setMaxStoredVal(Math.floor(secondValue))
     return;
+    }
+  function handleShopByChange(e: ChangeEvent<HTMLSelectElement>) {
+    dispatch(setFilterOptions({shopBy: e.currentTarget.value}))
   }
+  function handleSortByChange(e: ChangeEvent<HTMLSelectElement>) {
+    dispatch(setFilterOptions({sortBy: e.currentTarget.value}))
+  }
+  
 
   useEffect(() => {
-    setFirstValue(maxOfPrice * 0.25);
-    setSecondValue(maxOfPrice * 0.75);
-    setMinValue(maxOfPrice * 0.25);
-    setMaxValue(maxOfPrice * 0.75);
+    dispatch(setFilterOptions({minPrice:firstValue}));
+    dispatch(setFilterOptions({maxPrice:secondValue}));
+    
   }, [maxOfPrice]);
 
+  useEffect(() => {
+    
+    if(constantProps.categoriesList.length > 0) {
+      setShopByOptions(constantProps.categoriesList.map((item, iterator) => {
+          return <styled.StyledOption key={iterator}>{item[0].toUpperCase() + item.slice(1)}</styled.StyledOption>
+      }))
+    }
+  }, [constantProps])
+
   return (
-    <FilterWrapper>
-      <FilterOpenContainer
+    <styled.FilterWrapper>
+      <styled.FilterOpenContainer
         isOpened={useSelector((state: any) => state.isFilterOpened.value)}
         onClick={() => dispatch(changeFilterState(null))}
       >
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.2134 1.95389H5.18157C4.96076 1.29805 4.34042 0.824219 3.61107 0.824219C2.88172 0.824219 2.26139 1.29805 2.04057 1.95389H0.786865C0.495631 1.95389 0.259521 2.19 0.259521 2.48124C0.259521 2.77247 0.495631 3.00858 0.786865 3.00858H2.04061C2.26142 3.66442 2.88176 4.13826 3.61111 4.13826C4.34046 4.13826 4.96079 3.66442 5.18161 3.00858H13.2134C13.5047 3.00858 13.7408 2.77247 13.7408 2.48124C13.7408 2.19 13.5047 1.95389 13.2134 1.95389ZM3.61107 3.08357C3.27895 3.08357 3.00874 2.81336 3.00874 2.48124C3.00874 2.14912 3.27895 1.87891 3.61107 1.87891C3.94319 1.87891 4.2134 2.14912 4.2134 2.48124C4.2134 2.81336 3.94319 3.08357 3.61107 3.08357Z"
-            fill="#A18A68"
-          />
-          <path
-            d="M13.2134 6.47269H11.9597C11.7388 5.81685 11.1185 5.34302 10.3892 5.34302C9.65985 5.34302 9.03951 5.81685 8.8187 6.47269H0.786865C0.495631 6.47269 0.259521 6.7088 0.259521 7.00004C0.259521 7.29127 0.495631 7.52738 0.786865 7.52738H8.8187C9.03951 8.18322 9.65988 8.65706 10.3892 8.65706C11.1185 8.65706 11.7389 8.18322 11.9597 7.52738H13.2134C13.5047 7.52738 13.7408 7.29127 13.7408 7.00004C13.7408 6.7088 13.5047 6.47269 13.2134 6.47269ZM10.3892 7.60237C10.0571 7.60237 9.78687 7.33216 9.78687 7.00004C9.78687 6.66792 10.0571 6.39771 10.3892 6.39771C10.7213 6.39771 10.9915 6.66792 10.9915 7.00004C10.9915 7.33216 10.7213 7.60237 10.3892 7.60237Z"
-            fill="#A18A68"
-          />
-          <path
-            d="M13.2134 10.9914H7.44096C7.22014 10.3355 6.59981 9.86169 5.87046 9.86169C5.14111 9.86169 4.52078 10.3355 4.29996 10.9914H0.786865C0.495631 10.9914 0.259521 11.2275 0.259521 11.5187C0.259521 11.8099 0.495631 12.0461 0.786865 12.0461H4.29996C4.52078 12.7019 5.14111 13.1757 5.87046 13.1757C6.59981 13.1757 7.22014 12.7019 7.44096 12.0461H13.2134C13.5047 12.0461 13.7408 11.8099 13.7408 11.5187C13.7408 11.2275 13.5047 10.9914 13.2134 10.9914ZM5.87046 12.1211C5.53834 12.1211 5.26813 11.8509 5.26813 11.5187C5.26813 11.1866 5.53834 10.9164 5.87046 10.9164C6.20258 10.9164 6.47279 11.1866 6.47279 11.5187C6.47279 11.8508 6.20258 12.1211 5.87046 12.1211Z"
-            fill="#A18A68"
-          />
-        </svg>
-        <FilterOpenButton>Filter</FilterOpenButton>
-      </FilterOpenContainer>
-      <FilterOptionsContainer
+        <FilterBurgerSvg/>
+        <styled.FilterOpenButton>Filter</styled.FilterOpenButton>
+      </styled.FilterOpenContainer>
+      <styled.FilterOptionsContainer
         isOpened={useSelector((state: any) => state.isFilterOpened.value)}
       >
-        <FilterInputContainer>
-          <FilterInput placeholder="Search..."></FilterInput>
-          <SearchIcon>
-            <Svg
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <Path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M15.6431 13.9578L19.8645 18.1826C20.053 18.3922 20.0437 18.713 19.8434 18.9113L19.1047 19.6507C19.0056 19.7507 18.8707 19.8069 18.73 19.8069C18.5893 19.8069 18.4544 19.7507 18.3553 19.6507L14.1339 15.4259C14.0172 15.309 13.9112 15.1817 13.8173 15.0457L13.0258 13.9895C11.7162 15.0361 10.0898 15.606 8.41388 15.6055C4.96034 15.6175 1.95934 13.2333 1.18757 9.86439C0.415791 6.49551 2.07921 3.04106 5.19304 1.54616C8.30686 0.0512672 12.0401 0.914898 14.1825 3.62576C16.3249 6.33662 16.3047 10.1712 14.1339 12.8594L15.1893 13.5881C15.3541 13.6937 15.5063 13.8177 15.6431 13.9578ZM3.13727 8.2119C3.13727 11.1285 5.49976 13.4929 8.41405 13.4929C9.81354 13.4929 11.1557 12.9365 12.1453 11.9461C13.1349 10.9557 13.6908 9.6125 13.6908 8.2119C13.6908 5.29531 11.3283 2.93094 8.41405 2.93094C5.49976 2.93094 3.13727 5.29531 3.13727 8.2119Z"
-                fill="black"
-              />
-              <path
-                d="M19.8645 18.1826L20.1433 17.9318L20.1367 17.9245L20.1298 17.9175L19.8645 18.1826ZM15.6431 13.9578L15.3747 14.2198L15.3778 14.2229L15.6431 13.9578ZM19.8434 18.9113L19.5796 18.6448L19.5781 18.6463L19.8434 18.9113ZM19.1047 19.6507L18.8394 19.3856L18.8383 19.3867L19.1047 19.6507ZM18.3553 19.6507L18.6217 19.3867L18.6206 19.3856L18.3553 19.6507ZM14.1339 15.4259L13.8685 15.6909L13.8686 15.691L14.1339 15.4259ZM13.8173 15.0457L14.1259 14.8327L14.1218 14.8267L14.1174 14.8208L13.8173 15.0457ZM13.0258 13.9895L13.3259 13.7646L13.0939 13.455L12.7917 13.6966L13.0258 13.9895ZM8.41388 15.6055L8.41399 15.2305L8.41258 15.2305L8.41388 15.6055ZM1.18757 9.86439L1.5531 9.78065L1.18757 9.86439ZM5.19304 1.54616L5.03074 1.2081L5.19304 1.54616ZM14.1825 3.62576L13.8882 3.85828L14.1825 3.62576ZM14.1339 12.8594L13.8422 12.6238L13.5882 12.9383L13.9208 13.168L14.1339 12.8594ZM15.1893 13.5881L14.9761 13.8969L14.987 13.9039L15.1893 13.5881ZM20.1298 17.9175L15.9083 13.6928L15.3778 14.2229L19.5992 18.4476L20.1298 17.9175ZM20.1072 19.1779C20.4498 18.8387 20.4657 18.2902 20.1433 17.9318L19.5857 18.4334C19.6404 18.4942 19.6377 18.5873 19.5796 18.6448L20.1072 19.1779ZM19.3699 19.9157L20.1087 19.1764L19.5781 18.6463L18.8394 19.3856L19.3699 19.9157ZM18.73 20.1819C18.9708 20.1819 19.2015 20.0856 19.371 19.9146L18.8383 19.3867C18.8096 19.4157 18.7706 19.4319 18.73 19.4319V20.1819ZM18.089 19.9146C18.2585 20.0856 18.4892 20.1819 18.73 20.1819V19.4319C18.6894 19.4319 18.6504 19.4157 18.6217 19.3867L18.089 19.9146ZM13.8686 15.691L18.0901 19.9157L18.6206 19.3856L14.3992 15.1609L13.8686 15.691ZM13.5087 15.2587C13.6154 15.4133 13.7358 15.5579 13.8685 15.6909L14.3993 15.161C14.2985 15.06 14.207 14.9501 14.1259 14.8327L13.5087 15.2587ZM12.7257 14.2144L13.5172 15.2706L14.1174 14.8208L13.3259 13.7646L12.7257 14.2144ZM8.41377 15.9805C10.1749 15.981 11.8838 15.3822 13.2599 14.2824L12.7917 13.6966C11.5485 14.69 10.0048 15.2309 8.41399 15.2305L8.41377 15.9805ZM0.822036 9.94813C1.63292 13.4877 4.78612 15.9931 8.41518 15.9805L8.41258 15.2305C5.13456 15.2419 2.28576 12.9788 1.5531 9.78065L0.822036 9.94813ZM5.03074 1.2081C1.7588 2.77891 0.0111622 6.40859 0.822036 9.94813L1.5531 9.78065C0.820419 6.58244 2.39963 3.30321 5.35533 1.88422L5.03074 1.2081ZM14.4767 3.39324C12.2256 0.544832 8.30277 -0.362744 5.03074 1.2081L5.35533 1.88422C8.31095 0.465279 11.8545 1.28496 13.8882 3.85828L14.4767 3.39324ZM14.4257 13.095C16.7065 10.2705 16.7277 6.24156 14.4767 3.39324L13.8882 3.85828C15.922 6.43168 15.9029 10.0719 13.8422 12.6238L14.4257 13.095ZM15.4024 13.2796L14.347 12.5508L13.9208 13.168L14.9762 13.8967L15.4024 13.2796ZM15.9114 13.6959C15.7548 13.5354 15.5804 13.3933 15.3915 13.2724L14.987 13.9039C15.1278 13.9941 15.2579 14.1001 15.3747 14.2198L15.9114 13.6959ZM8.41405 13.1179C5.70715 13.1179 3.51227 10.9217 3.51227 8.2119H2.76227C2.76227 11.3353 5.29238 13.8679 8.41405 13.8679V13.1179ZM11.88 11.681C10.9607 12.6011 9.71398 13.1179 8.41405 13.1179V13.8679C9.91309 13.8679 11.3507 13.2719 12.4106 12.2112L11.88 11.681ZM13.3158 8.2119C13.3158 9.51314 12.7993 10.761 11.88 11.681L12.4106 12.2112C13.4704 11.1504 14.0658 9.71186 14.0658 8.2119H13.3158ZM8.41405 3.30594C11.1209 3.30594 13.3158 5.50213 13.3158 8.2119H14.0658C14.0658 5.08848 11.5357 2.55594 8.41405 2.55594V3.30594ZM3.51227 8.2119C3.51227 5.50213 5.70715 3.30594 8.41405 3.30594V2.55594C5.29238 2.55594 2.76227 5.08848 2.76227 8.2119H3.51227Z"
-                fill="white"
-              />
-            </Svg>
-          </SearchIcon>
-        </FilterInputContainer>
+        <styled.FilterInputContainer>
+          <styled.FilterInput placeholder="Search..."></styled.FilterInput>
+          <styled.SearchIcon>
+            <SearchSvg/>
+          </styled.SearchIcon>
+        </styled.FilterInputContainer>
 
-        <Dropdown>
-          <StyledOption selected disabled value="" hidden>
+        <styled.Dropdown  onChange={handleShopByChange}>
+          <styled.StyledOption selected disabled value="" hidden>
             Shop By
-          </StyledOption>
-          <StyledOption>None</StyledOption>
-          <StyledOption>Price</StyledOption>
-          <StyledOption>Price {'(Desc)'}</StyledOption>
-        </Dropdown>
+          </styled.StyledOption>
+          <styled.StyledOption>None</styled.StyledOption>
+          {shopByOptions}
+        </styled.Dropdown>
 
-        <Dropdown>
-          <StyledOption selected disabled value="" hidden>
+        <styled.Dropdown  onChange={handleSortByChange}>
+          <styled.StyledOption selected disabled value="" hidden>
             Sort By
-          </StyledOption>
-          <StyledOption>None</StyledOption>
-          <StyledOption>Price</StyledOption>
-          <StyledOption>Price {'(Desc)'}</StyledOption>
-          <StyledOption>Rating</StyledOption>
-          <StyledOption>Rating {'(Desc)'}</StyledOption>
-        </Dropdown>
+          </styled.StyledOption>
+          <styled.StyledOption>None</styled.StyledOption>
+          <styled.StyledOption>Price</styled.StyledOption>
+          <styled.StyledOption>Price {'(Desc)'}</styled.StyledOption>
+          <styled.StyledOption>Rating</styled.StyledOption>
+          <styled.StyledOption>Rating {'(Desc)'}</styled.StyledOption>
+        </styled.Dropdown>
 
-        <DualRanger>
-          <ProgressBar
-            highValue={maxValue}
-            lowValue={minValue}
+        <styled.DualRanger>
+          <styled.ProgressBar
+            highValue={useSelector((state: any) => state.filterOptions.maxValue)}
+            lowValue={useSelector((state: any) => state.filterOptions.minValue)}
             maxValue={maxOfPrice}
-          ></ProgressBar>
-          <StyledInputRange
+          ></styled.ProgressBar>
+          <styled.StyledInputRange
             type="range"
             value={firstValue}
             onChange={handleFirstSlider}
             step={0.1}
             min={0}
-            max={100}
-          ></StyledInputRange>
-          <StyledInputRange
+            max={1000}
+          ></styled.StyledInputRange>
+          <styled.StyledInputRange
             type="range"
             value={secondValue}
             onChange={handleSecondSlider}
             step={0.1}
             min={0}
-            max={100}
-          ></StyledInputRange>
-        </DualRanger>
-        <BottomSection>
-          <StyledPriceHeader>
-            Price: {minValue}$ - {maxValue}$
-          </StyledPriceHeader>
-          <FilterCloseContainer
-            onClick={() => dispatch(changeFilterState(null))}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.2134 1.95389H5.18157C4.96076 1.29805 4.34042 0.824219 3.61107 0.824219C2.88172 0.824219 2.26139 1.29805 2.04057 1.95389H0.786865C0.495631 1.95389 0.259521 2.19 0.259521 2.48124C0.259521 2.77247 0.495631 3.00858 0.786865 3.00858H2.04061C2.26142 3.66442 2.88176 4.13826 3.61111 4.13826C4.34046 4.13826 4.96079 3.66442 5.18161 3.00858H13.2134C13.5047 3.00858 13.7408 2.77247 13.7408 2.48124C13.7408 2.19 13.5047 1.95389 13.2134 1.95389ZM3.61107 3.08357C3.27895 3.08357 3.00874 2.81336 3.00874 2.48124C3.00874 2.14912 3.27895 1.87891 3.61107 1.87891C3.94319 1.87891 4.2134 2.14912 4.2134 2.48124C4.2134 2.81336 3.94319 3.08357 3.61107 3.08357Z"
-                fill="#A18A68"
-              />
-              <path
-                d="M13.2134 6.47269H11.9597C11.7388 5.81685 11.1185 5.34302 10.3892 5.34302C9.65985 5.34302 9.03951 5.81685 8.8187 6.47269H0.786865C0.495631 6.47269 0.259521 6.7088 0.259521 7.00004C0.259521 7.29127 0.495631 7.52738 0.786865 7.52738H8.8187C9.03951 8.18322 9.65988 8.65706 10.3892 8.65706C11.1185 8.65706 11.7389 8.18322 11.9597 7.52738H13.2134C13.5047 7.52738 13.7408 7.29127 13.7408 7.00004C13.7408 6.7088 13.5047 6.47269 13.2134 6.47269ZM10.3892 7.60237C10.0571 7.60237 9.78687 7.33216 9.78687 7.00004C9.78687 6.66792 10.0571 6.39771 10.3892 6.39771C10.7213 6.39771 10.9915 6.66792 10.9915 7.00004C10.9915 7.33216 10.7213 7.60237 10.3892 7.60237Z"
-                fill="#A18A68"
-              />
-              <path
-                d="M13.2134 10.9914H7.44096C7.22014 10.3355 6.59981 9.86169 5.87046 9.86169C5.14111 9.86169 4.52078 10.3355 4.29996 10.9914H0.786865C0.495631 10.9914 0.259521 11.2275 0.259521 11.5187C0.259521 11.8099 0.495631 12.0461 0.786865 12.0461H4.29996C4.52078 12.7019 5.14111 13.1757 5.87046 13.1757C6.59981 13.1757 7.22014 12.7019 7.44096 12.0461H13.2134C13.5047 12.0461 13.7408 11.8099 13.7408 11.5187C13.7408 11.2275 13.5047 10.9914 13.2134 10.9914ZM5.87046 12.1211C5.53834 12.1211 5.26813 11.8509 5.26813 11.5187C5.26813 11.1866 5.53834 10.9164 5.87046 10.9164C6.20258 10.9164 6.47279 11.1866 6.47279 11.5187C6.47279 11.8508 6.20258 12.1211 5.87046 12.1211Z"
-                fill="#A18A68"
-              />
-            </svg>
-            <FilterCloseButton>Filter</FilterCloseButton>
-          </FilterCloseContainer>
-        </BottomSection>
-      </FilterOptionsContainer>
-    </FilterWrapper>
+            max={1000}
+          ></styled.StyledInputRange>
+        </styled.DualRanger>
+          <styled.StyledPriceHeader>
+            Price: {minStoredVal}$ - {maxStoredVal}$
+          </styled.StyledPriceHeader>
+          <styled.FilterCloseContainer
+            onClick={() => {dispatch(changeFilterState(null));}}>
+            <FilterBurgerSvg/>
+            <styled.FilterCloseButton>Filter</styled.FilterCloseButton>
+          </styled.FilterCloseContainer>
+      </styled.FilterOptionsContainer>
+    </styled.FilterWrapper>
   );
 };
 export default FilterBar;

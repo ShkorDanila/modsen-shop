@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import router from '@/utils/router';
+import router from '@/routes/router';
 
 import { store } from './store/store';
 

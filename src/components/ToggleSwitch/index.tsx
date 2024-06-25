@@ -1,9 +1,10 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
-import { switchTheme } from '@/store/store';
-import theme from '@/utils/static_theme';
+import { THEME } from '@/constants/staticTheme';
+import { switchTheme } from '@/store/currentThemeSlice';
+
+import { StyledLabel } from './styled';
 
 export default function ToggleSwitch() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function ToggleSwitch() {
 
   function handleOnChange() {
     setSwitchState(!switchState);
-    dispatch(switchTheme(switchState === true ? theme.dark : theme.light));
+    dispatch(switchTheme(switchState ? THEME.dark : THEME.light));
   }
   return (
     <StyledLabel htmlFor="checkbox" checked={switchState}>
@@ -25,27 +26,3 @@ export default function ToggleSwitch() {
     </StyledLabel>
   );
 }
-
-const StyledLabel = styled.label<{ checked: boolean }>`
-  user-select: none;
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 60px;
-  height: 29px;
-  background: ${({ checked }) =>
-    checked ? 'gray' : (props) => props.theme.main_colours.black};
-  display: block;
-  border-radius: 100px;
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    left: ${({ checked }) => (checked ? '8px' : '54%')};
-    top: 5px;
-    width: 19px;
-    height: 19px;
-    background: ${(props) => props.theme.main_colours.white};
-    border-radius: 90px;
-    transition: 0.3s ease-in-out;
-  }
-`;
