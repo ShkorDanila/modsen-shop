@@ -6,7 +6,6 @@ import { CardsWrapper, HeaderShop, ProductsSection, ShopPageWrapper } from './st
 import { IProductList, setProductList } from '@/store/productListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '@/components/Card';
-import { setFilterOptions } from '@/store/filterOptionsSlice';
 const ShopPage: React.FC = () => {
 
   const [currentPruductList, setCurrentProductList] = useState<IProductList[]>([])
