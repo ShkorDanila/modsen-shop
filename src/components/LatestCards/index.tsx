@@ -11,6 +11,7 @@ import {
   ViewAllButton,
   ViewAllWrapper,
 } from './styled';
+import { StyledLink } from '@/utils/StyledLink';
 
 export interface ISmallProduct {
   image: string;
@@ -36,9 +37,9 @@ const LatestCards: React.FC = () => {
           <HeaderSection>
             <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
             <ViewAllWrapper>
-              <Link to={'shop'} style={{ textDecoration: 'none' }}>
+              <StyledLink to={'shop'} >
                 <ViewAllButton>View All</ViewAllButton>
-              </Link>
+              </StyledLink>
             </ViewAllWrapper>
           </HeaderSection>
           <CardsWrapper>

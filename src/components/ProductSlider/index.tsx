@@ -6,6 +6,8 @@ import { IProductList } from '@/store/productListSlice';
 import * as styled from './styled';
 import { ChosenMenuDotSvg } from '@/assets/ChosenMenuDotSvg';
 import { MenuDotSvg } from '@/assets/MenuDotSvg';
+import { Link } from 'react-router-dom';
+import { StyledLink } from '@/utils/StyledLink';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,9 +34,11 @@ const ProductSlider: React.FC<any> = () => {
                 <styled.InfoSection>
                   <styled.ProductName>{product.title}</styled.ProductName>
                   <styled.ProductCost>{product.price}$</styled.ProductCost>
+                  <StyledLink to={`/product/${product.id}`}>
                   <styled.ViewProductButton>
                     View Product
                   </styled.ViewProductButton>
+                  </StyledLink>
                 </styled.InfoSection>
               </styled.SliderImage>
             ))}
