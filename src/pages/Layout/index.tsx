@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import getProducts from '@/api/getProductsApi';
+import {getProducts} from '@/api/getProductsApi';
 import FooterComponent from '@/components/Footer';
 import Navbar from '@/components/Navbar/index';
 import { setProductList } from '@/store/productListSlice';

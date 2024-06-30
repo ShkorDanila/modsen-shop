@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { IProductList } from '@/store/productListSlice';
+import { IProduct } from '@/store/productListSlice';
 
 import * as styled from './styled';
 import { ChosenMenuDotSvg } from '@/assets/ChosenMenuDotSvg';
@@ -11,7 +11,7 @@ import { StyledLink } from '@/utils/StyledLink';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [sliderProducts, setSliderProducts] = useState<IProductList[]>([]);
+  const [sliderProducts, setSliderProducts] = useState<IProduct[]>([]);
   const productList = useSelector((state: any) => state.productList.value);
 
   useEffect(() => {

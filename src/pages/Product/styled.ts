@@ -25,6 +25,3 @@ export const PhotoSection = styled.section`
 export const FastInfoSection = styled.section`
     width: 100%;
 `
-
-export const DesktopVersion = styled.div`
-`

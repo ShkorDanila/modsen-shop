@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import FilterBar from '@/components/FilterBar';
 
 import { CardsWrapper, HeaderShop, ProductsSection, ShopPageWrapper } from './styled';
-import { IProductList, setProductList } from '@/store/productListSlice';
+import { IProduct, setProductList } from '@/store/productListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '@/components/Card';
 const ShopPage: React.FC = () => {
 
-  const [currentPruductList, setCurrentProductList] = useState<IProductList[]>([])
+  const [currentPruductList, setCurrentProductList] = useState<IProduct[]>([])
   const [maxValue, setMaxValue] = useState<number>(0)
   const [categories, setCategories] = useState([])
   const productList = useSelector((state: any) => state.productList.value);
