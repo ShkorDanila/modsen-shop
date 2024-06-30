@@ -5,14 +5,22 @@ interface IPhotoInfo {
     link: string;
 }
 
+interface IPhotoId {
+  photoId: number;
+}
+
 export const PhotosWrapper = styled.div`
     display: grid;
     grid-template-columns: 20% 80%;
     gap: 10px;
+    @media (width <= ${props => props.theme.device_sizing.size.tablet}) {
+      display: none;
+    }
 `
 
 export const SmallPhotos = styled.div `
     display: flex;
+    align-items:center;
     flex-direction: column;
     gap: 40px;
     height: 100%;
@@ -26,13 +34,8 @@ export const MainPhoto = styled.div<IPhotoInfo>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-    height: 100%;
-  @media (width > ${(props) => props.theme.device_sizing.size.laptopL}) {
-    width: 100%;
-  }
-  @media (width <= ${(props) => props.theme.device_sizing.size.laptopL}) {
-    width: 100%;
-  }
+  width: 90%;
+  height: 90%;
 `
 
 export const SingleSmallPhoto = styled.div<IPhotoInfo>`
@@ -41,12 +44,24 @@ export const SingleSmallPhoto = styled.div<IPhotoInfo>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  @media (width > ${(props) => props.theme.device_sizing.size.laptopL}) {
-    width: 5rem;
-    height: 5rem;
-  }
-  @media (width <= ${(props) => props.theme.device_sizing.size.laptopL}) {
-    width: 30rem;
-    height: 30rem;
-  }
+  width: 5rem;
+  height: 5rem;
+  
+`
+
+export const PhotoWrapper = styled.div`
+  padding: 10px;
+  width: fit-content;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+`
+
+export const MainPhotoWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
 `

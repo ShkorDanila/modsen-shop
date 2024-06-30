@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { MainPhoto, PhotosWrapper, SingleSmallPhoto, SmallPhotos } from './styled';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { MainPhoto, MainPhotoWrapper, PhotoWrapper, PhotosWrapper, SingleSmallPhoto, SmallPhotos } from './styled';
 
-interface IPhotosProps {
+export interface IPhotosProps {
     urls: string[];
 }
 
@@ -15,14 +15,19 @@ const ProductPhotoOverview = ({urls} : IPhotosProps) => {
         setSidePictures(urls.slice(0,urls.length-1))
     }, [])
 
+
+    function handleSidePictureClick (iterator: number) {
+        setCurrentPicture(sidePictures[iterator])
+        setSidePictures((lastArray) => lastArray.map((item, i) => i == iterator ? currentPicture : item))
+    }
+
     return (
         <PhotosWrapper>
             <SmallPhotos>
-                { sidePictures.map((url, iterator) => <SingleSmallPhoto key={iterator} photoId={1} link={url}></SingleSmallPhoto>)}
+                { sidePictures.map((url, iterator) => <PhotoWrapper key={iterator}><SingleSmallPhoto 
+                onClick={() => handleSidePictureClick(iterator)} key={iterator} photoId={iterator} link={url}></SingleSmallPhoto></PhotoWrapper>)}
             </SmallPhotos>
-            <MainPhoto link={currentPicture} photoId={1}>
-
-            </MainPhoto>
+            <MainPhotoWrapper><MainPhoto link={currentPicture} photoId={1}/></MainPhotoWrapper>
         </PhotosWrapper>
     )
 }
