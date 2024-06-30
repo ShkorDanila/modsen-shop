@@ -4,23 +4,31 @@ import ProductPhotoOverview from '@/components/ProductPhotoOverview';
 import { IProduct } from '@/store/productListSlice';
 import { PRODUCT_API_URL } from '@/constants/productApiRequest';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { getProduct } from '@/api/getProductsApi';
+import { getProduct, getSimilarProducts } from '@/api/getProductsApi';
 import MobileSlider from '@/components/MobileSlider';
 import { FaStar } from "react-icons/fa"
+import Card from '@/components/Card';
 
 const ProductPage:React.FC = () => {
 
     const [product, setProduct] = useState<IProduct | null>(null)
     const { id } = useParams()
     const [isFull, setIsFull] = useState(false)
+    const [similarItemsList, setSimilarItemsList] = useState<IProduct[] | null>()
     
 
     useEffect(() => {
 
-        getProduct(Number(id)).then((productResp) => setProduct(productResp))
+        getProduct(Number(id)).then((productResp) => {
+            setProduct(productResp);
+            getSimilarProducts(productResp.category).then((productList) =>
+            setSimilarItemsList(productList.filter((productItem: IProduct) => 
+                productItem.title != productResp.title
+            )))
+            return;
+        })
         
-        
-    }, [])
+    }, [id])
 
 
     return <>
@@ -35,7 +43,7 @@ const ProductPage:React.FC = () => {
             </styled.PhotoSection>
 
             <styled.FastInfoSection>
-
+                <styled.MainInfoWrapper>
                 <styled.ProductTitle>{product.title}</styled.ProductTitle>
                 
                 <styled.ProductCost>{product.price}$</styled.ProductCost>
@@ -55,10 +63,26 @@ const ProductPage:React.FC = () => {
 
                 <styled.ProductDescription isFull={isFull}>{product.description}</styled.ProductDescription>
                 <styled.ViewMoreButton onClick={() => setIsFull(prevState => !prevState)}>{!isFull ? "View All" : "Close"}</styled.ViewMoreButton>
+                </styled.MainInfoWrapper>
+                <styled.ProductCategories>
+                    <styled.ProductCategoriesTitle>Categories:&nbsp; </styled.ProductCategoriesTitle>
+                    <styled.ProductCategoriesNames>{product.category}</styled.ProductCategoriesNames>
+                </styled.ProductCategories>
             </styled.FastInfoSection>
 
         </styled.ProductInfoSection>
-
+        <styled.SimilarItemsSection>
+            <styled.SimilarItemsTitle>Similar items</styled.SimilarItemsTitle>
+            <styled.SimilarItemsContainer>
+                { similarItemsList == null &&
+                    <h1>Ничего нету :{`(`}</h1>
+                }
+                {
+                    similarItemsList != null &&
+                    similarItemsList.map((product) => <Card {...product}></Card>)
+                }
+            </styled.SimilarItemsContainer>
+        </styled.SimilarItemsSection>
 
     </styled.ProductWrapper>
     }

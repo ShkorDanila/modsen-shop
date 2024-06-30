@@ -11,3 +11,9 @@ export async function getProduct(id: number) {
   const product = await response.json();
   return product;
 }
+
+export async function getSimilarProducts(category: string) {
+  const response = await fetch(PRODUCT_API_URL + "/category/" + category)
+  const productList = await response.json()
+  return productList.length == 0 ? null : productList
+}

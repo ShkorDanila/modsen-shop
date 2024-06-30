@@ -13,7 +13,7 @@ const ProductPhotoOverview = ({urls} : IPhotosProps) => {
     useEffect(() => {
         setCurrentPicture(urls[0])
         setSidePictures(urls.slice(0,urls.length-1))
-    }, [])
+    }, [urls])
 
 
     function handleSidePictureClick (iterator: number) {

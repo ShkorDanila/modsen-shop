@@ -4,6 +4,7 @@ export const ProductWrapper = styled.div`
     width: 100%;
     display: grid;
     grid-auto-flow: row;
+    gap: 50px;
 `
 
 export const ProductInfoSection = styled.section`
@@ -24,10 +25,11 @@ export const PhotoSection = styled.section`
 
 export const FastInfoSection = styled.section`
     padding: 10px;
-    height: fit-content;
-    display: grid;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 1em;
-    grid-auto-flow: row;
 `
 
 export const ProductTitle = styled.h1`
@@ -83,5 +85,45 @@ export const ViewMoreButton = styled.button`
     all: unset;
     @media (width > ${(props: any) => props.theme.device_sizing.size.tablet}) {
         display: none;
+    }
+`
+
+export const ProductCategories = styled.div`
+     display: flex;
+     bottom: 0;
+`
+
+export const ProductCategoriesTitle = styled.h2`
+
+`
+
+export const ProductCategoriesNames = styled.h2`
+
+`
+
+export const MainInfoWrapper = styled.div`
+    width: 100%;
+    height: fit-content;
+`
+
+export const SimilarItemsSection = styled.div`
+    display: grid;
+    grid-auto-flow: row;
+    gap: 30px;
+`
+
+export const SimilarItemsTitle = styled.h2`
+
+`
+
+export const SimilarItemsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: fit-content;
+    flex-direction: auto;
+    @media (width <= ${(props: any) => props.theme.device_sizing.size.tablet}) {
+        flex-direction: column;
+        align-items: center;
     }
 `

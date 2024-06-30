@@ -1,10 +1,14 @@
 import * as styled from "./styled"
 import { IPhotosProps } from '../ProductPhotoOverview';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MobileSlider = ({urls} : IPhotosProps) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+      setCurrentIndex(0);
+    }, [urls])
 
     function handleLeftClickArrow () {
         setCurrentIndex((current) => current <= 0 ? urls.length-1 : current-1)
