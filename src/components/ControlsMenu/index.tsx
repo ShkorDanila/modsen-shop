@@ -34,11 +34,11 @@ const ControlsMenu: React.FC = () => {
           <ShopHeading>Shop</ShopHeading>
         </StyledLink>
         <ToggleSwitch />
-        <CartSvg/>
+        <StyledLink to={"cart"}><CartSvg/></StyledLink>
       </ControlsDesktopContainer>
 
       <ControlsMobileContainer>
-      <CartSvg/>
+      <StyledLink to={"cart"}><CartSvg/></StyledLink>
 
         <input type="checkbox" onChange={handleThemeCheckbox}></input>
 

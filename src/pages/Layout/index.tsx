@@ -7,10 +7,13 @@ import {getProducts} from '@/api/getProductsApi';
 import FooterComponent from '@/components/Footer';
 import Navbar from '@/components/Navbar/index';
 import { setProductList } from '@/store/productListSlice';
+import { setCart } from '@/store/cartSlice';
 
 import { Footer, Header, LayoutContainer, Main } from './styled';
 
 const Layout: React.FC = () => {
+
+  const cart = useSelector((state: any) => state.cart.value)
   const dispatch = useDispatch();
 
   useEffect(() => {
