@@ -57,12 +57,60 @@ export const InfoSection = styled.div`
 
 export const RemoveProductButton = styled.button`
     all:unset;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    font-family: ${(props) => props.theme.typefaces.font_primary};
+    color: ${(props) => props.theme.main_colours.accent};
+    user-select: none;
+
+    @media(width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+        font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+    }
+
+    @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
+    }
 `
 
 export const ProductTitle = styled.h2`
-    all:unset;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    font-family: ${(props) => props.theme.typefaces.font_primary};
+    color: ${(props) => props.theme.main_colours.black};
+    user-select: none;
+
+    @media(width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.heading[2].size};
+        font-weight: ${(props) => props.theme.typefaces.pc.heading[2].weight};
+    }
+
+    @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.heading[2].size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.heading[2].weight};
+    }
 `
 
 export const ProductCost = styled.h3`
-    all:unset;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[1].weight};
+    font-size: ${(props) => props.theme.typefaces.pc.heading[3].size};
+    line-height: ${(props) => props.theme.typefaces.pc.heading[3].line_height};
+  }
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    line-height: ${(props) =>
+      props.theme.typefaces.mobile.body.small.line_height};
+  }
+
+  color: ${(props) => props.theme.main_colours.accent};
 `

@@ -30,8 +30,8 @@ const CartPage:React.FC = () => {
           );
       };
 
-    return (
-        <styled.CartWrapper>
+    return (<>
+        <styled.CartWrapper {...{isEmpty: cart.length <=0}}>
             <div>
             {cart.map((product: IProduct) => {
                 return <CartProduct {...product}/>
@@ -39,10 +39,15 @@ const CartPage:React.FC = () => {
             </div>
             
             <styled.SubmitSection>
-            <styled.EmailInput type='text'></styled.EmailInput>
+            <styled.EmailInput placeholder='Email to send Invoice' type='email' required></styled.EmailInput>
             <styled.SubmitCartButton onClick={sendInvoice} disabled={cart.length <= 0}>Submit</styled.SubmitCartButton>
             </styled.SubmitSection>
         </styled.CartWrapper>
+        <styled.EmptyPage {...{isEmpty: cart.length <=0}}>
+            <styled.EmptyTitle>Cart Is Empty</styled.EmptyTitle>
+            <styled.ToShopButton onClick={() => navigate('../shop')}>Shop</styled.ToShopButton>
+        </styled.EmptyPage>
+        </>
     )
 }
 export default CartPage;
