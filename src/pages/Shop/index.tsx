@@ -32,6 +32,7 @@ const ShopPage: React.FC = () => {
       if(filterOptions.searchInput != undefined && filterOptions.searchInput != "") {
         return productList.filter((item: any) => item.title.trim().toLowerCase().includes(filterOptions.searchInput.trim().toLowerCase()))
       }
+        return productList
     }
 
     async function shopBy () {

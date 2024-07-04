@@ -75,11 +75,11 @@ const ProductPage:React.FC = () => {
             <styled.SimilarItemsTitle>Similar items</styled.SimilarItemsTitle>
             <styled.SimilarItemsContainer>
                 { similarItemsList == null &&
-                    <h1>Ничего нету :{`(`}</h1>
+                    <h1>No Matches</h1>
                 }
                 {
                     similarItemsList != null &&
-                    similarItemsList.map((product) => <Card {...product}></Card>)
+                    similarItemsList.slice(0,3).map((product) => <Card {...product}></Card>)
                 }
             </styled.SimilarItemsContainer>
         </styled.SimilarItemsSection>

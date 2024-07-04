@@ -37,7 +37,7 @@ const LatestCards: React.FC = () => {
           <HeaderSection>
             <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
             <ViewAllWrapper>
-              <StyledLink to={'shop'} >
+              <StyledLink to={'../shop'} >
                 <ViewAllButton>View All</ViewAllButton>
               </StyledLink>
             </ViewAllWrapper>
