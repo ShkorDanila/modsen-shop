@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import ControlsMenu from '@/components/ControlsMenu';
 import SideMenu from '@/components/SideMenu';
+import { StyledLink } from '@/utils/StyledLink';
 
 import { Hr } from '../Footer/styled';
 import {
@@ -12,7 +12,6 @@ import {
   NavbarContainer,
   NavElementsContainer,
 } from './styled';
-import { StyledLink } from '@/utils/StyledLink';
 
 const Navbar: React.FC = () => {
   return (

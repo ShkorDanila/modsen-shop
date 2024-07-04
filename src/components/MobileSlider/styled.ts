@@ -1,37 +1,36 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MobileSliderWrapper = styled.div`
-
-    @media(width > ${props => props.theme.device_sizing.size.tablet}) {
-        display: none;
-    }
-    display: relative;
-    width: 100%;
-    margin-bottom: 20px;
-`
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    display: none;
+  }
+  display: relative;
+  width: 100%;
+  margin-bottom: 20px;
+`;
 
 export const ArrowLeft = styled.button`
-    all: unset;
-    position: absolute;
-    cursor: pointer;
-    z-index: 5;
-    left: 0;
-    width: 50%;
-    height: 100%;
-`
+  all: unset;
+  position: absolute;
+  cursor: pointer;
+  z-index: 5;
+  left: 0;
+  width: 50%;
+  height: 100%;
+`;
 
 export const ArrowRight = styled.button`
-    all: unset;
-    position: absolute;
-    cursor: pointer;
-    z-index: 5;
-    right: 0;
-    width: 50%;
-    height: 100%;
-`
+  all: unset;
+  position: absolute;
+  cursor: pointer;
+  z-index: 5;
+  right: 0;
+  width: 50%;
+  height: 100%;
+`;
 export const ProductSliderWrapper = styled.section`
-  @media(width > ${props => props.theme.device_sizing.size.tablet}) {
-        display: none;
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    display: none;
   }
   width: 100%;
   height: 40vh;
@@ -68,6 +67,6 @@ export const SliderImage = styled.div<ISliderImage>`
 `;
 
 interface ISliderImage {
-    image: string;
-    currentIndex: number;
-  }
+  image: string;
+  currentIndex: number;
+}

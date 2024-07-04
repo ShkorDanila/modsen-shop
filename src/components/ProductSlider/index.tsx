@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { IProduct } from '@/store/productListSlice';
-
-import * as styled from './styled';
 import { ChosenMenuDotSvg } from '@/assets/ChosenMenuDotSvg';
 import { MenuDotSvg } from '@/assets/MenuDotSvg';
-import { Link } from 'react-router-dom';
+import { IProduct } from '@/store/productListSlice';
 import { StyledLink } from '@/utils/StyledLink';
+
+import * as styled from './styled';
 
 const ProductSlider: React.FC<any> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,9 +34,9 @@ const ProductSlider: React.FC<any> = () => {
                   <styled.ProductName>{product.title}</styled.ProductName>
                   <styled.ProductCost>{product.price}$</styled.ProductCost>
                   <StyledLink to={`/product/${product.id}`}>
-                  <styled.ViewProductButton>
-                    View Product
-                  </styled.ViewProductButton>
+                    <styled.ViewProductButton>
+                      View Product
+                    </styled.ViewProductButton>
                   </StyledLink>
                 </styled.InfoSection>
               </styled.SliderImage>

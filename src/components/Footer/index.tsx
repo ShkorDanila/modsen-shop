@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import * as styled from './styled';
 import { ArrowSvg } from '@/assets/ArrowSvg';
-import { LinkedInSvg } from '@/assets/LinkedInSvg';
 import { FacebookSvg } from '@/assets/FacebookSvg';
 import { InstagramSvg } from '@/assets/InstagramSvg';
+import { LinkedInSvg } from '@/assets/LinkedInSvg';
 import { TwitterSvg } from '@/assets/TwitterSvg';
 import { StyledLink } from '@/utils/StyledLink';
-import emailjs from '@emailjs/browser';
+
+import * as styled from './styled';
 
 const FooterComponent: React.FC = () => {
-
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState('');
 
   const subscribeToMail = () => {
-    if(email != "")
-    alert("Вы подписались на новости")
+    if (email != '') alert('Вы подписались на новости');
     // emailjs.send('service_kts1md9', 'template_8tllynt', {email: email}).then(
     //     (response) => {
     //         alert("Вы подписались на новости")
@@ -31,14 +29,19 @@ const FooterComponent: React.FC = () => {
     <styled.FooterWrapper
       isOpened={useSelector((state: any) => state.isMenuOpened.value)}
     >
-      <styled.Hr/>
+      <styled.Hr />
       <styled.FooterContent>
         <styled.EmailAreaWrapper>
           <styled.EmailInputWrapper>
             <styled.EmailWithArrowWrapper>
-              <styled.EmailInput onChange={(e) => {setEmail(e.currentTarget.value)}} placeholder="Give an email, get the newsletter" />
+              <styled.EmailInput
+                onChange={(e) => {
+                  setEmail(e.currentTarget.value);
+                }}
+                placeholder="Give an email, get the newsletter"
+              />
               <styled.EmailButton onClick={subscribeToMail}>
-                <ArrowSvg/>
+                <ArrowSvg />
               </styled.EmailButton>
             </styled.EmailWithArrowWrapper>
           </styled.EmailInputWrapper>
@@ -52,7 +55,9 @@ const FooterComponent: React.FC = () => {
 
         <styled.Buttons>
           <styled.LiButton>
-            <StyledLink to={"/contact"}><styled.Button>CONTACT</styled.Button></StyledLink>
+            <StyledLink to={'/contact'}>
+              <styled.Button>CONTACT</styled.Button>
+            </StyledLink>
           </styled.LiButton>
           <styled.LiButton>
             <styled.Button>TERMS OF SERVICES</styled.Button>
@@ -69,22 +74,22 @@ const FooterComponent: React.FC = () => {
           </styled.FollowText>
 
           <styled.ContactButton>
-            <LinkedInSvg/>
+            <LinkedInSvg />
           </styled.ContactButton>
           <styled.ContactButton>
-            <FacebookSvg/>
+            <FacebookSvg />
           </styled.ContactButton>
           <styled.ContactButton>
-              <InstagramSvg/>
+            <InstagramSvg />
           </styled.ContactButton>
           <styled.ContactButton>
-            <TwitterSvg/>
+            <TwitterSvg />
           </styled.ContactButton>
         </styled.ContactsWrapper>
 
         <styled.Text>
-          <styled.Span>© 2023 Shelly.</styled.Span> Terms of use <styled.Span> and </styled.Span> privacy
-          policy.
+          <styled.Span>© 2023 Shelly.</styled.Span> Terms of use{' '}
+          <styled.Span> and </styled.Span> privacy policy.
         </styled.Text>
       </styled.FooterContent>
     </styled.FooterWrapper>

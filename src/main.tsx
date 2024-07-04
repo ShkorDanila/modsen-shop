@@ -1,11 +1,12 @@
+import emailjs from '@emailjs/browser';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-import { PersistGate } from "redux-persist/integration/react"
-import { persistor } from "@/store/store"
-import emailjs from "@emailjs/browser"
+import { PersistGate } from 'redux-persist/integration/react';
+
 import router from '@/routes/router';
+import { persistor } from '@/store/store';
 
 import { store } from './store/store';
 
@@ -17,7 +18,7 @@ emailjs.init({
   publicKey: 'nWaQlV1p9_rd9OH5H',
   // Do not allow headless browsers
   blockHeadless: true,
-})
+});
 
 root.render(
   <StrictMode>

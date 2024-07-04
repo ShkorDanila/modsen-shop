@@ -200,7 +200,6 @@ export const ContactButton = styled.button`
   padding: 0;
 `;
 
-
 export const IconsText = styled.div`
   font-family: ${(props) => props.theme.typefaces.font_primary};
   font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};

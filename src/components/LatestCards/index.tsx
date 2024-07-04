@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import { StyledLink } from '@/utils/StyledLink';
 
 import Card from '../Card';
 import {
@@ -11,7 +12,6 @@ import {
   ViewAllButton,
   ViewAllWrapper,
 } from './styled';
-import { StyledLink } from '@/utils/StyledLink';
 
 export interface ISmallProduct {
   image: string;
@@ -37,7 +37,7 @@ const LatestCards: React.FC = () => {
           <HeaderSection>
             <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
             <ViewAllWrapper>
-              <StyledLink to={'../shop'} >
+              <StyledLink to={'../shop'}>
                 <ViewAllButton>View All</ViewAllButton>
               </StyledLink>
             </ViewAllWrapper>

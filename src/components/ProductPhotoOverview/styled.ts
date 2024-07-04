@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IPhotoInfo {
-    photoId: number;
-    link: string;
+  photoId: number;
+  link: string;
 }
 
 interface IPhotoId {
@@ -10,33 +10,33 @@ interface IPhotoId {
 }
 
 export const PhotosWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 20% 80%;
-    gap: 10px;
-    @media (width <= ${props => props.theme.device_sizing.size.tablet}) {
-      display: none;
-    }
-`
+  display: grid;
+  grid-template-columns: 20% 80%;
+  gap: 10px;
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    display: none;
+  }
+`;
 
-export const SmallPhotos = styled.div `
-    display: flex;
-    align-items:center;
-    flex-direction: column;
-    gap: 40px;
-    height: 100%;
-    width: 100%;
-    justify-content: space-around;
-`
+export const SmallPhotos = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+`;
 
 export const MainPhoto = styled.div<IPhotoInfo>`
-    -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
   background-image: url(${(props) => props.link});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   width: 90%;
   height: 90%;
-`
+`;
 
 export const SingleSmallPhoto = styled.div<IPhotoInfo>`
   -webkit-tap-highlight-color: transparent;
@@ -46,8 +46,7 @@ export const SingleSmallPhoto = styled.div<IPhotoInfo>`
   background-position: center;
   width: 5rem;
   height: 5rem;
-  
-`
+`;
 
 export const PhotoWrapper = styled.div`
   padding: 10px;
@@ -55,7 +54,7 @@ export const PhotoWrapper = styled.div`
   height: 100%;
   background-color: white;
   border-radius: 10px;
-`
+`;
 
 export const MainPhotoWrapper = styled.div`
   display: grid;
@@ -64,4 +63,4 @@ export const MainPhotoWrapper = styled.div`
   height: 100%;
   background-color: white;
   border-radius: 10px;
-`
+`;

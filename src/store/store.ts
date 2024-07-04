@@ -1,25 +1,29 @@
 import { configureStore } from '@reduxjs/toolkit';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
+import { cartSlice } from './cartSlice';
 import { currentThemeSlice } from './currentThemeSlice';
+import { filterOptionsSlice } from './filterOptionsSlice';
 import { isFilterOpenedSlice } from './isFilterOpenedSlice';
 import { isMenuOpenedSlice } from './isMenuOpenedSlice';
 import { productListSlice } from './productListSlice';
-import { filterOptionsSlice } from './filterOptionsSlice';
-import { cartSlice } from './cartSlice';
-import { persistStore, persistReducer, FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
   key: 'root',
   storage,
-}
+};
 
-const persistedCartReducer = persistReducer(persistConfig, cartSlice.reducer)
+const persistedCartReducer = persistReducer(persistConfig, cartSlice.reducer);
 
 export const store = configureStore({
   reducer: {
@@ -29,7 +33,6 @@ export const store = configureStore({
     isFilterOpened: isFilterOpenedSlice.reducer,
     filterOptions: filterOptionsSlice.reducer,
     cart: persistedCartReducer,
-    
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -39,4 +42,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

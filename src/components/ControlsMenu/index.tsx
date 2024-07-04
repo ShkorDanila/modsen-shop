@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
+import { CartSvg } from '@/assets/CartSvg';
 import ToggleSwitch from '@/components/ToggleSwitch/index';
 import { THEME } from '@/constants/staticTheme';
 import { switchTheme } from '@/store/currentThemeSlice';
 import { changeMenuState } from '@/store/isMenuOpenedSlice';
+import { StyledLink } from '@/utils/StyledLink';
 
 import SvgMenu from '../SvgMenu';
 import {
@@ -14,9 +15,6 @@ import {
   ShopHeading,
   SideMenuButton,
 } from './styled';
-import { Path, Svg } from '@/utils/utilStyles';
-import { CartSvg } from '@/assets/CartSvg';
-import { StyledLink } from '@/utils/StyledLink';
 
 const ControlsMenu: React.FC = () => {
   const dispatch = useDispatch();
@@ -34,11 +32,15 @@ const ControlsMenu: React.FC = () => {
           <ShopHeading>Shop</ShopHeading>
         </StyledLink>
         <ToggleSwitch />
-        <StyledLink to={"cart"}><CartSvg/></StyledLink>
+        <StyledLink to={'cart'}>
+          <CartSvg />
+        </StyledLink>
       </ControlsDesktopContainer>
 
       <ControlsMobileContainer>
-      <StyledLink to={"cart"}><CartSvg/></StyledLink>
+        <StyledLink to={'cart'}>
+          <CartSvg />
+        </StyledLink>
 
         <input type="checkbox" onChange={handleThemeCheckbox}></input>
 

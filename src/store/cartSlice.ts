@@ -20,22 +20,26 @@ export const cartSlice = createSlice({
   initialState: { value: cartInitial },
   reducers: {
     setCart: (state, action) => {
+      console.log('Данные на входе ' + action.payload);
 
-      console.log("Данные на входе " + action.payload);
-      
       state.value = action.payload;
 
-      
-      console.log("Данные на выходе " + state.value);
+      console.log('Данные на выходе ' + state.value);
     },
     addToCart: (state, action) => {
-        if(state.value.map((product: IProduct) => product.id).includes(action.payload.id)) {
-            return;
-        }
-        state.value.push(action.payload)
+      if (
+        state.value
+          .map((product: IProduct) => product.id)
+          .includes(action.payload.id)
+      ) {
+        return;
+      }
+      state.value.push(action.payload);
     },
     removeFromCart: (state, action) => {
-      state.value = state.value.filter((product: IProduct) => product.id != action.payload)
+      state.value = state.value.filter(
+        (product: IProduct) => product.id != action.payload,
+      );
     },
   },
 });
