@@ -1,6 +1,6 @@
 {
   "name": "@modsen-shop/source",
-  "version": "1.0.0(dev)",
+  "version": "1.0.0(release)",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",

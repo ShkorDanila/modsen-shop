@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import * as styled from './styled';
@@ -8,8 +8,25 @@ import { FacebookSvg } from '@/assets/FacebookSvg';
 import { InstagramSvg } from '@/assets/InstagramSvg';
 import { TwitterSvg } from '@/assets/TwitterSvg';
 import { StyledLink } from '@/utils/StyledLink';
+import emailjs from '@emailjs/browser';
 
 const FooterComponent: React.FC = () => {
+
+  const [email, setEmail] = useState("")
+
+  const subscribeToMail = () => {
+    if(email != "")
+    alert("Вы подписались на новости")
+    // emailjs.send('service_kts1md9', 'template_8tllynt', {email: email}).then(
+    //     (response) => {
+    //         alert("Вы подписались на новости")
+    //     },
+    //     (error) => {
+    //       console.log('FAILED...', error);
+    //     },
+    //   );
+  };
+
   return (
     <styled.FooterWrapper
       isOpened={useSelector((state: any) => state.isMenuOpened.value)}
@@ -19,8 +36,8 @@ const FooterComponent: React.FC = () => {
         <styled.EmailAreaWrapper>
           <styled.EmailInputWrapper>
             <styled.EmailWithArrowWrapper>
-              <styled.EmailInput placeholder="Give an email, get the newsletter" />
-              <styled.EmailButton>
+              <styled.EmailInput onChange={(e) => {setEmail(e.currentTarget.value)}} placeholder="Give an email, get the newsletter" />
+              <styled.EmailButton onClick={subscribeToMail}>
                 <ArrowSvg/>
               </styled.EmailButton>
             </styled.EmailWithArrowWrapper>
