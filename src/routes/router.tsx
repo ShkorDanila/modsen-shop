@@ -5,6 +5,7 @@ import Layout from '@/pages/Layout';
 import ShopPage from '@/pages/Shop';
 import ProductPage from '@/pages/Product';
 import CartPage from '@/pages/Cart';
+import { ContactUs } from '@/pages/ContactUs';
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <ShopPage></ShopPage>,
+        element: <ContactUs></ContactUs>,
       },
       {
         path: '*',
