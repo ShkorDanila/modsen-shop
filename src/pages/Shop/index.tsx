@@ -28,22 +28,31 @@ const ShopPage: React.FC = () => {
 
   useEffect(() => {
     
-    async function useShopBy () {
+    async function nameBy () {
+      if(filterOptions.searchInput != undefined && filterOptions.searchInput != "") {
+        return productList.filter((item: any) => item.title.trim().toLowerCase().includes(filterOptions.searchInput.trim().toLowerCase()))
+      }
+    }
+
+    async function shopBy () {
+      
+      let nameByList = await nameBy()
+
       if(filterOptions.shopBy != undefined && filterOptions.shopBy != "None") {
-        return productList.filter((item: any) => item.category == filterOptions.shopBy.toLowerCase())
+        return nameByList.filter((item: any) => item.category == filterOptions.shopBy.toLowerCase())
       }
       else {
-        return productList
+        return nameByList
       }
     }
     
-    async function useCurrentPricePreset () {
-      let shopedByList = await useShopBy()
+    async function currentPricePreset () {
+      let shopedByList = await shopBy()
       return shopedByList.filter((item: any) => item.price >= filterOptions.minPrice && item.price <= filterOptions.maxPrice)
     }
 
-    async function useSort () {
-      let shopedAndPricedList = await useCurrentPricePreset()
+    async function sort () {
+      let shopedAndPricedList = await currentPricePreset()
 
       if(filterOptions.sortBy == "None" || filterOptions.sortBy == undefined){
         setCurrentProductList(shopedAndPricedList)
@@ -64,7 +73,7 @@ const ShopPage: React.FC = () => {
       }
     }
 
-    useSort()
+    sort()
     
   }, [filterOptions])
 

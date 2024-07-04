@@ -89,7 +89,7 @@ const FilterBar: React.FC<IFilterContants> = (constantProps) => {
         isOpened={useSelector((state: any) => state.isFilterOpened.value)}
       >
         <styled.FilterInputContainer>
-          <styled.FilterInput placeholder="Search..."></styled.FilterInput>
+          <styled.FilterInput onChange={(e) => {dispatch(setFilterOptions({searchInput: e.currentTarget.value}))}} placeholder="Search..."></styled.FilterInput>
           <styled.SearchIcon>
             <SearchSvg/>
           </styled.SearchIcon>

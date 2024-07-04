@@ -5,6 +5,7 @@ interface IFilterOptions {
     shopBy?: string;
     maxPrice?: number;
     minPrice?: number;
+    searchInput?: string;
 }
 
 const filterOptionsInitial: IFilterOptions =  {minPrice: 0, maxPrice: 1000};
@@ -30,6 +31,10 @@ export const filterOptionsSlice = createSlice({
 
         if(action.payload.minPrice){
             state.value.minPrice = action.payload.minPrice
+        }
+
+        if(action.payload.searchInput && action.payload.searchInput != ""){
+            state.value.searchInput = action.payload.searchInput
         }
         
         },
