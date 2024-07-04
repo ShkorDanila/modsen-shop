@@ -4,7 +4,7 @@ interface IMenuProps {
   isOpened: boolean;
 }
 
-export const LayoutContainer = styled.div`
+export const LayoutContainer = styled.div <{isOpened: boolean}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,10 +12,12 @@ export const LayoutContainer = styled.div`
   transition: 0.2s ease-in-out;
   padding-left: 3%;
   padding-right: 3%;
+  ${props => props.isOpened && `height: 100%`}
 `;
 
-export const Header = styled.header`
+export const Header = styled.header<{isOpened: boolean}>`
   width: 100%;
+  ${props => props.isOpened && `height: 100%`}
 `;
 
 export const Footer = styled.footer`

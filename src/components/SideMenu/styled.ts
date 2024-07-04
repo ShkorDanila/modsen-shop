@@ -34,6 +34,7 @@ export const SideMenuStyled = styled.div<ISideMenuStyled>`
   }
   flex-grow: 1;
   width: 85%;
+  height: 100%;
   flex: 1;
   background-color: transparent;
   transition: all 0.3 ease;

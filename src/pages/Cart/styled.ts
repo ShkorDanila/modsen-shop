@@ -71,8 +71,8 @@ export const SubmitSection = styled.div`
 `;
 
 export const EmptyPage = styled.div<{ isEmpty: boolean }>`
-  margin-top: 14rem;
-  margin-bottom: 14rem;
+  margin-top: 17rem;
+  margin-bottom: 17rem;
   width: 100%;
   height: 100%;
   display: flex;

@@ -22,8 +22,8 @@ const Layout: React.FC = () => {
     <ThemeProvider
       theme={useSelector((state: any) => state.currentTheme.value)}
     >
-      <LayoutContainer>
-        <Header>
+      <LayoutContainer {...{isOpened: useSelector((state: any) => state.isMenuOpened.value)}}>
+        <Header {...{isOpened: useSelector((state: any) => state.isMenuOpened.value)}}>
           <Navbar></Navbar>
         </Header>
         <Main isOpened={useSelector((state: any) => state.isMenuOpened.value)}>
