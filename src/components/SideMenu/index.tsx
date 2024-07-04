@@ -33,7 +33,7 @@ const SideMenu: React.FC = () => {
             </StyledLink>
           </li>
           <li>
-            <StyledMenuOption>Contact</StyledMenuOption>
+          <StyledLink to={"/contact"} onClick={() => dispatch(changeMenuState(null))}><StyledMenuOption>Contact</StyledMenuOption></StyledLink>
           </li>
         </Ul>
       </nav>
