@@ -30,7 +30,7 @@ export function ContactUsForm(){
             initialValues:{ firstName: "", lastName: "", email: "", subject: "", message: ""},
             onSubmit: values => {
                 try{
-                    emailjs.send('service_kodnaga', 'template_d0ele2h', values, 'WlxqKFoUWbFHeWzb1');
+                    emailjs.send('service_kts1md9', 'template_sfxchak', values);
                     alert("Сообщение успешно отправлено!")
                     formik.resetForm()
                 }catch(e){

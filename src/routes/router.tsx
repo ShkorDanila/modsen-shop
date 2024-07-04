@@ -6,6 +6,7 @@ import ShopPage from '@/pages/Shop';
 import ProductPage from '@/pages/Product';
 import CartPage from '@/pages/Cart';
 import { ContactUs } from '@/pages/ContactUs';
+import ErrorPage from '@/pages/Error';
 
 export const router = createBrowserRouter([
   {
@@ -14,31 +15,35 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/home"></Navigate>,
+        element: <Navigate to="/home"/>,
       },
       {
         path: 'home',
-        element: <HomePage></HomePage>,
+        element: <HomePage/>,
       },
       {
         path: 'shop',
-        element: <ShopPage></ShopPage>,
+        element: <ShopPage/>,
       },
       {
         path: 'product/:id',
-        element: <ProductPage></ProductPage>,
+        element: <ProductPage/>,
       },
       {
         path: 'cart',
-        element: <CartPage></CartPage>,
+        element: <CartPage/>,
       },
       {
         path: 'contact',
-        element: <ContactUs></ContactUs>,
+        element: <ContactUs/>,
       },
       {
         path: '*',
-        element: <ShopPage></ShopPage>,
+        element: <Navigate to="404"></Navigate>,
+      },
+      {
+        path: "404",
+        element: <ErrorPage/>,
       },
     ],
   },
