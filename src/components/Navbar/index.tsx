@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import ControlsMenu from '@/components/ControlsMenu';
 import SideMenu from '@/components/SideMenu';
+import { StyledLink } from '@/utils/StyledLink';
 
 import { Hr } from '../Footer/styled';
 import {
@@ -18,10 +18,10 @@ const Navbar: React.FC = () => {
     <NavbarContainer>
       <NavElementsContainer>
         <LogoContainer>
-          <Link to={'home'} style={{ textDecoration: 'none' }}>
+          <StyledLink to={'home'}>
             <LogoHeaderAccent>Modsen S</LogoHeaderAccent>
             <LogoHeaderThemed>HOPPE</LogoHeaderThemed>
-          </Link>
+          </StyledLink>
         </LogoContainer>
         <ControlsMenu></ControlsMenu>
       </NavElementsContainer>

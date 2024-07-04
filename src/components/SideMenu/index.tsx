@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import { changeMenuState } from '@/store/store';
+import { changeMenuState } from '@/store/isMenuOpenedSlice';
+import { StyledLink } from '@/utils/StyledLink';
 
 import { SideMenuStyled, StyledMenuOption, Ul } from './styled';
 const SideMenu: React.FC = () => {
@@ -14,25 +14,28 @@ const SideMenu: React.FC = () => {
       <nav>
         <Ul>
           <li>
-            <Link
+            <StyledLink
               onClick={() => dispatch(changeMenuState(null))}
               to={'home'}
-              style={{ textDecoration: 'none' }}
             >
               <StyledMenuOption>Home</StyledMenuOption>
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link
+            <StyledLink
               onClick={() => dispatch(changeMenuState(null))}
               to={'shop'}
-              style={{ textDecoration: 'none' }}
             >
               <StyledMenuOption>Shop</StyledMenuOption>
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <StyledMenuOption>Contact</StyledMenuOption>
+            <StyledLink
+              to={'/contact'}
+              onClick={() => dispatch(changeMenuState(null))}
+            >
+              <StyledMenuOption>Contact</StyledMenuOption>
+            </StyledLink>
           </li>
         </Ul>
       </nav>

@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-import theme from '@/utils/static_theme';
-
 export const LogoHeaderThemed = styled.span`
-  font-family: ${theme.typefaces.font_logo};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.logo.size};
-    font-weight: ${theme.typefaces.pc.logo.weight};
+  font-family: ${(props) => props.theme.typefaces.font_logo};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.pc.logo.weight};
   }
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.logo.size};
-    font-weight: ${theme.typefaces.mobile.logo.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.logo.weight};
   }
   color: ${(props) => props.theme.main_colours.black};
   transition: 0.2s ease-in-out;
@@ -19,17 +17,17 @@ export const LogoHeaderThemed = styled.span`
 
 export const LogoHeaderAccent = styled.span`
   user-select: none;
-  font-family: ${theme.typefaces.font_logo};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.pc.logo.size};
-    font-weight: ${theme.typefaces.pc.logo.weight};
+  font-family: ${(props) => props.theme.typefaces.font_logo};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.pc.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.pc.logo.weight};
   }
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.logo.size};
-    font-weight: ${theme.typefaces.mobile.logo.weight};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.logo.weight};
   }
 
-  color: ${theme.light.main_colours.accent};
+  color: ${(props) => props.theme.main_colours.accent};
   transition: 0.2s ease-in-out;
 `;
 
@@ -41,7 +39,7 @@ export const NavElementsContainer = styled.div`
   background-color: ${(props) => props.theme.main_colours.white};
   transition: 0.2s ease-in-out;
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
     margin-top: 10px;
     margin-bottom: 10px;
   }

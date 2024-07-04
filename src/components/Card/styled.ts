@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import theme from '@/utils/static_theme';
-
 interface IProductImage {
   image: string;
 }
@@ -15,11 +13,11 @@ export const StyledCard = styled.div`
   border-radius: 15px;
   grid-auto-flow: row;
   background-color: white;
-  @media (width > ${theme.device_sizing.size.laptopL}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.laptopL}) {
     width: 25rem;
     height: 30rem;
   }
-  @media (width <= ${theme.device_sizing.size.laptopL}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.laptopL}) {
     width: 8rem;
     height: 14rem;
   }
@@ -32,11 +30,11 @@ export const ProductImage = styled.div<IProductImage>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  @media (width > ${theme.device_sizing.size.laptopL}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.laptopL}) {
     width: 100%;
     height: 25rem;
   }
-  @media (width <= ${theme.device_sizing.size.laptopL}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.laptopL}) {
     width: 100%;
     height: 10rem;
   }
@@ -49,34 +47,35 @@ export const TitleHeader = styled.h3`
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.laptopL}) {
-    font-weight: ${theme.typefaces.pc.heading[3].weight};
-    font-size: ${theme.typefaces.pc.heading[3].size};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.laptopL}) {
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[3].weight};
+    font-size: ${(props) => props.theme.typefaces.pc.heading[3].size};
   }
-  @media (width <= ${theme.device_sizing.size.laptopL}) {
-    font-weight: ${theme.typefaces.mobile.heading[3].weight};
-    font-size: ${theme.typefaces.mobile.heading[3].size};
+  @media (width <= ${(props) => props.theme.device_sizing.size.laptopL}) {
+    font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
+    font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
   }
 
-  color: ${theme.light.main_colours.black};
+  color: black;
 `;
 
 export const PriceHeader = styled.h3`
   margin: 0;
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-weight: ${theme.typefaces.pc.heading[1].weight};
-    font-size: ${theme.typefaces.pc.heading[3].size};
-    line-height: ${theme.typefaces.pc.heading[3].line_height};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[1].weight};
+    font-size: ${(props) => props.theme.typefaces.pc.heading[3].size};
+    line-height: ${(props) => props.theme.typefaces.pc.heading[3].line_height};
   }
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    line-height: ${theme.typefaces.mobile.body.small.line_height};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    line-height: ${(props) =>
+      props.theme.typefaces.mobile.body.small.line_height};
   }
 
-  color: ${theme.light.main_colours.accent};
+  color: ${(props) => props.theme.main_colours.accent};
 `;
 
 export const HoverEffectDiv = styled.button`
@@ -84,18 +83,18 @@ export const HoverEffectDiv = styled.button`
   top: 0.5rem;
   cursor: pointer;
   right: 0.5rem;
-  background-color: ${theme.light.main_colours.black};
-  color: ${theme.light.main_colours.white};
+  background-color: ${(props) => props.theme.main_colours.black};
+  color: ${(props) => props.theme.main_colours.white};
   position: absolute;
   padding: 0.3rem;
   border: black solid 1px;
   border-radius: 3px;
 
-  font-family: ${theme.typefaces.font_primary};
-  @media (width > ${theme.device_sizing.size.tablet}) {
-    font-weight: ${theme.typefaces.pc.heading[1].weight};
-    font-size: ${theme.typefaces.pc.heading[3].size};
-    line-height: ${theme.typefaces.pc.heading[3].line_height};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[1].weight};
+    font-size: ${(props) => props.theme.typefaces.pc.heading[3].size};
+    line-height: ${(props) => props.theme.typefaces.pc.heading[3].line_height};
 
     translate: 200%;
     ${StyledCard}:hover && {
@@ -103,19 +102,20 @@ export const HoverEffectDiv = styled.button`
       transition: translate 0.3s ease-in-out;
     }
     :hover {
-      background-color: ${theme.light.main_colours.white};
-      color: ${theme.light.main_colours.black};
+      background-color: ${(props) => props.theme.main_colours.white};
+      color: ${(props) => props.theme.main_colours.black};
       transition: 0.3s ease-in-out;
     }
   }
-  @media (width <= ${theme.device_sizing.size.tablet}) {
-    font-weight: ${theme.typefaces.mobile.body.small.weight};
-    font-size: ${theme.typefaces.mobile.body.small.size};
-    line-height: ${theme.typefaces.mobile.body.small.line_height};
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+    line-height: ${(props) =>
+      props.theme.typefaces.mobile.body.small.line_height};
 
     :active {
-      background-color: ${theme.light.main_colours.white};
-      color: ${theme.light.main_colours.black};
+      background-color: ${(props) => props.theme.main_colours.white};
+      color: ${(props) => props.theme.main_colours.black};
       transition: 0.01s ease-in-out;
     }
   }

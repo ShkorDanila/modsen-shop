@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import { StyledLink } from '@/utils/StyledLink';
 
 import Card from '../Card';
 import {
@@ -16,6 +17,7 @@ export interface ISmallProduct {
   image: string;
   title: string;
   price: number;
+  id: number;
 }
 
 const LatestCards: React.FC = () => {
@@ -35,9 +37,9 @@ const LatestCards: React.FC = () => {
           <HeaderSection>
             <HeaderShopLatest>Shop The Latest</HeaderShopLatest>
             <ViewAllWrapper>
-              <Link to={'shop'} style={{ textDecoration: 'none' }}>
+              <StyledLink to={'../shop'}>
                 <ViewAllButton>View All</ViewAllButton>
-              </Link>
+              </StyledLink>
             </ViewAllWrapper>
           </HeaderSection>
           <CardsWrapper>

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-import theme from '../../utils/static_theme';
-
 export const ShopHeading = styled.h5`
   text-decoration: none;
-  font-family: ${theme.typefaces.font_primary};
-  font-size: ${theme.typefaces.pc.heading[5].size};
-  font-weight: ${theme.typefaces.pc.heading[5].weight};
-  line-height: ${theme.typefaces.pc.heading[5].line_height};
-  text-indent: ${theme.typefaces.pc.heading[5].paragraph_spacing};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+  font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+  line-height: ${(props) => props.theme.typefaces.pc.heading[5].line_height};
+  text-indent: ${(props) =>
+    props.theme.typefaces.pc.heading[5].paragraph_spacing};
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
 
@@ -19,17 +18,18 @@ export const ShopHeading = styled.h5`
 `;
 
 export const ControlsDesktopContainer = styled.div`
-  font-family: ${theme.typefaces.font_primary};
-  font-size: ${theme.typefaces.pc.heading[5].size};
-  font-weight: ${theme.typefaces.pc.heading[5].weight};
-  line-height: ${theme.typefaces.pc.heading[5].line_height};
-  text-indent: ${theme.typefaces.pc.heading[5].paragraph_spacing};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+  font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+  line-height: ${(props) => props.theme.typefaces.pc.heading[5].line_height};
+  text-indent: ${(props) =>
+    props.theme.typefaces.pc.heading[5].paragraph_spacing};
   display: grid;
   grid-auto-flow: column;
   align-items: center;
   gap: 15px;
 
-  @media (width <= ${theme.device_sizing.size.tablet}) {
+  @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
 
@@ -38,13 +38,14 @@ export const ControlsDesktopContainer = styled.div`
 `;
 
 export const ControlsMobileContainer = styled.div`
-  font-family: ${theme.typefaces.font_primary};
-  font-size: ${theme.typefaces.pc.heading[5].size};
-  font-weight: ${theme.typefaces.pc.heading[5].weight};
-  line-height: ${theme.typefaces.pc.heading[5].line_height};
-  text-indent: ${theme.typefaces.pc.heading[5].paragraph_spacing};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+  font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+  line-height: ${(props) => props.theme.typefaces.pc.heading[5].line_height};
+  text-indent: ${(props) =>
+    props.theme.typefaces.pc.heading[5].paragraph_spacing};
 
-  @media (width > ${theme.device_sizing.size.tablet}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
 
@@ -54,22 +55,6 @@ export const ControlsMobileContainer = styled.div`
   grid-auto-flow: column;
   align-items: center;
   gap: 15px;
-`;
-
-export const Path = styled.path`
-  fill: ${(props) => props.theme.main_colours.black};
-  transition: 0.2s ease-in-out;
-`;
-
-export const Rect = styled.rect`
-  fill: ${(props) => props.theme.main_colours.black};
-  transition: 0.2s ease-in-out;
-`;
-
-export const Svg = styled.svg`
-  cursor: pointer;
-  display: grid;
-  align-items: center;
 `;
 
 export const SideMenuButton = styled.button`
