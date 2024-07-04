@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { changeMenuState } from '@/store/isMenuOpenedSlice';
 
 import { SideMenuStyled, StyledMenuOption, Ul } from './styled';
+import { StyledLink } from '@/utils/StyledLink';
 const SideMenu: React.FC = () => {
   const dispatch = useDispatch();
   return (
@@ -14,25 +15,25 @@ const SideMenu: React.FC = () => {
       <nav>
         <Ul>
           <li>
-            <Link
+            <StyledLink
               onClick={() => dispatch(changeMenuState(null))}
               to={'home'}
-              style={{ textDecoration: 'none' }}
+            
             >
               <StyledMenuOption>Home</StyledMenuOption>
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link
+            <StyledLink
               onClick={() => dispatch(changeMenuState(null))}
               to={'shop'}
-              style={{ textDecoration: 'none' }}
+           
             >
               <StyledMenuOption>Shop</StyledMenuOption>
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <StyledMenuOption>Contact</StyledMenuOption>
+          <StyledLink to={"/contact"} onClick={() => dispatch(changeMenuState(null))}><StyledMenuOption>Contact</StyledMenuOption></StyledLink>
           </li>
         </Ul>
       </nav>

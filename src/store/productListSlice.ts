@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface IProductList {
+export interface IProduct {
   id: number;
   title: string;
   price: number;
@@ -13,7 +13,7 @@ export interface IProductList {
   };
 }
 
-const productListInitial: IProductList[] = [];
+const productListInitial: IProduct[] = [];
 
 export const productListSlice = createSlice({
   name: 'productList',

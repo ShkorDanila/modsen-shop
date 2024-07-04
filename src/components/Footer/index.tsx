@@ -7,6 +7,7 @@ import { LinkedInSvg } from '@/assets/LinkedInSvg';
 import { FacebookSvg } from '@/assets/FacebookSvg';
 import { InstagramSvg } from '@/assets/InstagramSvg';
 import { TwitterSvg } from '@/assets/TwitterSvg';
+import { StyledLink } from '@/utils/StyledLink';
 
 const FooterComponent: React.FC = () => {
   return (
@@ -34,7 +35,7 @@ const FooterComponent: React.FC = () => {
 
         <styled.Buttons>
           <styled.LiButton>
-            <styled.Button>CONTACT</styled.Button>
+            <StyledLink to={"/contact"}><styled.Button>CONTACT</styled.Button></StyledLink>
           </styled.LiButton>
           <styled.LiButton>
             <styled.Button>TERMS OF SERVICES</styled.Button>

@@ -16,6 +16,7 @@ import {
 } from './styled';
 import { Path, Svg } from '@/utils/utilStyles';
 import { CartSvg } from '@/assets/CartSvg';
+import { StyledLink } from '@/utils/StyledLink';
 
 const ControlsMenu: React.FC = () => {
   const dispatch = useDispatch();
@@ -29,15 +30,15 @@ const ControlsMenu: React.FC = () => {
   return (
     <>
       <ControlsDesktopContainer>
-        <Link to={'shop'} style={{ textDecoration: 'none' }}>
+        <StyledLink to={'shop'}>
           <ShopHeading>Shop</ShopHeading>
-        </Link>
+        </StyledLink>
         <ToggleSwitch />
-        <CartSvg/>
+        <StyledLink to={"cart"}><CartSvg/></StyledLink>
       </ControlsDesktopContainer>
 
       <ControlsMobileContainer>
-      <CartSvg/>
+      <StyledLink to={"cart"}><CartSvg/></StyledLink>
 
         <input type="checkbox" onChange={handleThemeCheckbox}></input>
 

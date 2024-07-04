@@ -12,16 +12,17 @@ import {
   NavbarContainer,
   NavElementsContainer,
 } from './styled';
+import { StyledLink } from '@/utils/StyledLink';
 
 const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <NavElementsContainer>
         <LogoContainer>
-          <Link to={'home'} style={{ textDecoration: 'none' }}>
+          <StyledLink to={'home'}>
             <LogoHeaderAccent>Modsen S</LogoHeaderAccent>
             <LogoHeaderThemed>HOPPE</LogoHeaderThemed>
-          </Link>
+          </StyledLink>
         </LogoContainer>
         <ControlsMenu></ControlsMenu>
       </NavElementsContainer>
